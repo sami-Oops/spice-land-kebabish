@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spice Land Kebabish</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg py-4 navbar-fixed">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand logo">
+                <img src="images/logo.jpeg">
+            </a>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">MENU</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">GALLERY</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">CONTACT</a>
+                </li>
+            </ul>
+            <button class="order-btn">
+                ORDER NOW <i class="fa-solid fa-shopping-basket ms-2"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-container">
+        <!-- LEFT COLUMN -->
+        <div class="left-column">
+            <!-- HERO SECTION -->
+            <section class="hero">
+                <div class="container-fluid px-5">
+                    <div class="hero-content">
+                        <div class="hero-left">
+                            <h1>
+                                FEEL THE
+                                <span class="spice">SPICE</span>
+                                LIVE THE
+                                <span class="flavor">FLAVOR</span>
+                            </h1>
+                            <p>Deliciously spicy, perfectly grilled made with passion, served with love</p>
+                            <div class="hero-buttons">
+                                <button class="btn-red">
+                                    <i class="fa-solid fa-fire"></i> ORDER NOW
+                                </button>
+                                <button class="btn-dark2">
+                                    EXPLORE MENU <i class="fa-solid fa-arrow-right ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="hero-right">
+                            <img src="images/logo.jpeg" alt="Spice Land Logo" class="hero-logo">
+                            <video autoplay muted loop playsinline class="hero-video-bg">
+                                <source src="videos/kebabish.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TOP FEATURES -->
+            <section class="signature-section">
+                <div class="top-features">
+                    <div class="mini-item">
+                        <i class="fa-solid fa-leaf"></i>
+                        <div>
+                            <h6>FRESH INGREDIENTS</h6>
+                            <p>Always Fresh & Hygienic</p>
+                        </div>
+                    </div>
+                    <div class="mini-item">
+                        <i class="fa-solid fa-fire"></i>
+                        <div>
+                            <h6>PERFECTLY GRILLED</h6>
+                            <p>Flame Grilled To Perfection</p>
+                        </div>
+                    </div>
+                    <div class="mini-item">
+                        <i class="fa-solid fa-pepper-hot"></i>
+                        <div>
+                            <h6>AUTHENTIC RECIPES</h6>
+                            <p>Traditional Taste</p>
+                        </div>
+                    </div>
+                    <div class="mini-item">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <div>
+                            <h6>FAST DELIVERY</h6>
+                            <p>On Time Every Time</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIGNATURE DISHES -->
+                <h2>OUR <span>SIGNATURE</span> DISHES</h2>
+                <div class="dishes-container">
+                    <button class="slider-arrow arrow-left" onclick="scrollDishes(-1)">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="dish-slider" id="dishSlider">
+                        <div class="dish-card">
+                            <img src="images/RESHMI KEBAB.jpeg">
+                            <h5>RESHMI KEBAB</h5>
+                            <p>Rs. 660</p>
+                        </div>
+                        <div class="dish-card">
+                            <img src="images/CHICKEN TIKKA.jpeg">
+                            <h5>CHICKEN TIKKA</h5>
+                            <p>Rs. 600</p>
+                        </div>
+                        <div class="dish-card">
+                            <img src="images/SEEKH KEBAB.jpeg">
+                            <h5>SEEKH KEBAB</h5>
+                            <p>Rs. 550</p>
+                        </div>
+                        <div class="dish-card">
+                            <img src="images/BBQ PLATTER.png">
+                            <h5>BBQ PLATTER</h5>
+                            <p>Rs. 1200</p>
+                        </div>
+                        <div class="dish-card">
+                            <img src="images/ZINGER BURGER.jpeg">
+                            <h5>ZINGER BURGER</h5>
+                            <p>Rs. 550</p>
+                        </div>
+                    </div>
+                    <button class="slider-arrow arrow-right" onclick="scrollDishes(1)">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="text-center">
+                    <button class="menu-btn">
+                        <i class="fa-solid fa-fire me-2"></i>VIEW FULL MENU
+                    </button>
+                </div>
+            </section>
+
+            <!-- STATS SECTION -->
+            <section class="stats-section">
+                <div class="stats-box">
+                    <div class="stat-item">
+                        <i class="fa-regular fa-clock"></i>
+                        <div>
+                            <h3>10+</h3>
+                            <p>YEARS OF EXPERIENCE</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-utensils"></i>
+                        <div>
+                            <h3>50+</h3>
+                            <p>DELICIOUS DISHES</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <div>
+                            <h3>100%</h3>
+                            <p>CUSTOMER SATISFACTION</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-users"></i>
+                        <div>
+                            <h3>5000+</h3>
+                            <p>HAPPY CUSTOMERS</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div>
+                            <h3>VISIT US TODAY!</h3>
+                            <p>We can't wait to serve you</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HUNGRY SECTION -->
+            <section class="hungry-section">
+                <div class="hungry-wrapper">
+                    <div class="hungry-left">
+                        <h2>HUNGRY?<br><span>ORDER NOW!</span></h2>
+                        <p>Get your favorite kebabs and delicacies delivered fresh to your door with zero delay.</p>
+                        <button class="btn-order-now">ORDER NOW</button>
+                    </div>
+                    <div class="hungry-right">
+                        <img src="images/ZINGER BURGER.jpeg" alt="Delivery Bike" class="hungry-img">
+                    </div>
+                </div>
+            </section>
+
+            <!-- SPECIAL COMBO SECTION -->
+            <section class="special-combo-section">
+                <div class="combo-header">
+                    <h2>OUR <span>SPECIAL</span> COMBO</h2>
+                </div>
+                <div class="combo-wrapper">
+                    <div class="combo-images">
+                        <img src="images/BBQ PLATTER.png" alt="Platter 1" class="combo-img combo-img-1">
+                        <img src="images/CHICKEN TIKKA.jpeg" alt="Tikka" class="combo-img combo-img-2">
+                        <img src="images/SEEKH KEBAB.jpeg" alt="Kebab" class="combo-img combo-img-3">
+                    </div>
+                    <div class="combo-info">
+                        <h3>FAMILY FEAST</h3>
+                        <ul class="combo-items-list">
+                            <li>4 Reshmi Kebabs</li>
+                            <li>4 Seekh Kebabs</li>
+                            <li>2 Naan Breads</li>
+                            <li>Mint Chutney</li>
+                        </ul>
+                        <div class="combo-footer">
+                            <div class="combo-price">
+                                <span class="price-label">Rs.</span>
+                                <span class="price-value">1999</span>
+                                <span class="original-price">2500</span>
+                            </div>
+                            <span class="discount-tag">20% OFF</span>
+                        </div>
+                        <button class="btn-select">SELECT NOW</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TESTIMONIALS SECTION -->
+            <section class="testimonials-section">
+                <div class="testimonials-header">
+                    <h2>WHAT OUR <span>CUSTOMERS</span> SAY</h2>
+                </div>
+                <div class="testimonials-container">
+                    <button class="testimonial-arrow arrow-left-testimonial" onclick="scrollTestimonials(-1)">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonials-wrapper" id="testimonialsSlider">
+                        <div class="testimonial-item">
+                            <div class="testimonial-avatar">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <h4>Ali Khan</h4>
+                            <p class="testimonial-role">Food Enthusiast</p>
+                            <p class="testimonial-text">"Best kebabs in the city! The flavors are authentic and the quality is unmatched."</p>
+                        </div>
+
+                        <div class="testimonial-item">
+                            <div class="testimonial-avatar">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <h4>Sarah Ahmed</h4>
+                            <p class="testimonial-role">Regular Customer</p>
+                            <p class="testimonial-text">"Amazing delivery service and hot, fresh food every time. Highly recommend!"</p>
+                        </div>
+
+                        <div class="testimonial-item">
+                            <div class="testimonial-avatar">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <h4>Hassan Malik</h4>
+                            <p class="testimonial-role">Food Blogger</p>
+                            <p class="testimonial-text">"The perfect blend of spice and flavor. Worth every penny. Best combos!"</p>
+                        </div>
+                    </div>
+                    <button class="testimonial-arrow arrow-right-testimonial" onclick="scrollTestimonials(1)">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- NEWSLETTER SECTION -->
+            <section class="newsletter-final-section">
+                <div class="newsletter-wrapper">
+                    <div class="newsletter-text">
+                        <h2>STAY UPDATED<br><span>WITH OUR OFFERS</span></h2>
+                        <p>Get exclusive deals and new menu updates delivered to your inbox</p>
+                        <div class="newsletter-form-group">
+                            <input type="email" placeholder="Enter your email" class="newsletter-email-input">
+                            <button class="btn-subscribe-final">SUBSCRIBE</button>
+                        </div>
+                    </div>
+                    <div class="newsletter-logo-section">
+                        <div class="spice-land-logo">
+                            <img src="images/logo.jpeg" alt="Spice Land Logo">
+                        </div>
+                        <h3>SPICE LAND<br>KEBABISH</h3>
+                        <div class="social-footer">
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- MODAL: DISH DETAILS -->
+    <div id="dishModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeDishModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalDishImage" src="" alt="Dish">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalDishName"></h2>
+                    <p class="modal-description" id="modalDishDesc"></p>
+                    <div class="modal-details">
+                        <span class="detail-badge">Spicy Level: <strong id="modalSpiceLevel"></strong></span>
+                        <span class="detail-badge">Serves: <strong id="modalServes"></strong></span>
+                    </div>
+                    <div class="modal-price">
+                        <span class="price" id="modalPrice"></span>
+                    </div>
+                    <button class="modal-add-btn">
+                        <i class="fa-solid fa-shopping-cart"></i> ADD TO ORDER
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: IMAGE GALLERY -->
+    <div id="galleryModal" class="modal-overlay">
+        <div class="gallery-modal-content">
+            <button class="modal-close" onclick="closeGalleryModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="galleryImage" src="" alt="Gallery">
+            <div class="gallery-nav">
+                <button class="gallery-prev" onclick="prevGalleryImage()">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="gallery-next" onclick="nextGalleryImage()">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js">
+       
+    </script>
+</body>
+
+</html>
