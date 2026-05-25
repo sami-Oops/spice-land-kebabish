@@ -3179,4 +3179,540 @@ font-size: 14px;
 }
 }
 
+/* ===== EXTRA MOBILE RESPONSIVENESS (320px - 576px) ===== */
+@media(max-width: 576px) {
+/* NAVBAR MOBILE */
+.logo img {
+width: 60px;
+}
+
+.navbar-nav {
+gap: 3px;
+}
+
+.nav-link {
+font-size: 10px;
+padding: 0.4rem 0.3rem;
+}
+
+.order-btn {
+font-size: 10px;
+padding: 6px 10px;
+}
+
+/* HERO MOBILE */
+.main-container {
+display: flex;
+flex-direction: column;
+}
+
+.left-column {
+width: 100%;
+}
+
+.hero {
+min-height: 60vh;
+padding: 1.5rem;
+}
+
+.hero-content {
+flex-direction: column;
+gap: 1.5rem;
+padding: 1rem 0;
+}
+
+.hero-left {
+order: 2;
+text-align: center;
+}
+
+.hero-right {
+order: 1;
+width: 100%;
+}
+
+.hero-left h1 {
+font-size: 24px;
+line-height: 1.3;
+margin-bottom: 0.75rem;
+}
+
+.hero-left p {
+font-size: 12px;
+margin-bottom: 1rem;
+}
+
+.hero-buttons {
+flex-direction: column;
+gap: 0.75rem;
+justify-content: center;
+width: 100%;
+}
+
+.btn-red, .btn-dark2 {
+font-size: 12px;
+padding: 10px 15px;
+width: 100%;
+}
+
+.hero-logo {
+width: 250px;
+height: 250px;
+}
+
+.hero-video-bg {
+width: 250px;
+height: 250px;
+}
+
+/* TOP FEATURES MOBILE */
+.top-features {
+display: grid;
+grid-template-columns: 1fr;
+gap: 1rem;
+padding: 1.5rem;
+}
+
+.mini-item {
+display: flex;
+align-items: center;
+gap: 1rem;
+text-align: left;
+padding: 0.75rem;
+}
+
+.mini-item i {
+font-size: 1.5rem;
+color: #ff3c00;
+min-width: 30px;
+}
+
+.mini-item h6 {
+font-size: 11px;
+margin: 0;
+}
+
+.mini-item p {
+font-size: 9px;
+margin: 0;
+}
+
+/* DISHES MOBILE */
+.signature-section h2 {
+font-size: 20px;
+text-align: center;
+padding: 1rem;
+}
+
+.dishes-container {
+gap: 0.75rem;
+padding: 0;
+overflow-x: auto;
+scroll-behavior: smooth;
+-webkit-overflow-scrolling: touch;
+padding: 1rem 0.5rem;
+}
+
+.slider-arrow {
+width: 32px;
+height: 32px;
+font-size: 12px;
+min-width: 32px;
+flex-shrink: 0;
+}
+
+.dish-card {
+width: 140px;
+height: 180px;
+flex-shrink: 0;
+}
+
+.dish-name {
+font-size: 11px;
+}
+
+.dish-price {
+font-size: 10px;
+}
+
+/* STATS MOBILE */
+.stats-section {
+grid-template-columns: 1fr 1fr;
+gap: 0.75rem;
+}
+
+.stat-item {
+padding: 0.75rem;
+text-align: center;
+}
+
+.stat-icon {
+font-size: 1.5rem;
+}
+
+.stat-number {
+font-size: 18px;
+}
+
+.stat-text {
+font-size: 9px;
+}
+
+/* HUNGRY SECTION MOBILE */
+.hungry-section {
+padding: 2rem 1rem;
+}
+
+.hungry-wrapper {
+flex-direction: column !important;
+gap: 1.5rem !important;
+}
+
+.hungry-left h2 {
+font-size: 22px;
+}
+
+.hungry-left p {
+font-size: 11px;
+}
+
+.hungry-right img {
+max-width: 100%;
+height: auto;
+}
+
+.btn-select {
+font-size: 11px;
+padding: 8px 15px;
+width: 100%;
+}
+
+/* COMBO SECTION MOBILE */
+.special-combo-section {
+padding: 2rem 1rem;
+}
+
+.combo-wrapper {
+flex-direction: column !important;
+gap: 1.5rem !important;
+}
+
+.combo-info h3 {
+font-size: 20px;
+}
+
+.combo-info p {
+font-size: 11px;
+}
+
+.combo-price {
+font-size: 18px;
+}
+
+.combo-images {
+height: 200px;
+position: relative;
+}
+
+.combo-img-1, .combo-img-2, .combo-img-3 {
+width: 70px !important;
+}
+
+/* TESTIMONIALS MOBILE */
+.testimonials-section {
+padding: 2rem 1rem;
+}
+
+.testimonials-header h2 {
+font-size: 20px;
+}
+
+.testimonials-container {
+gap: 1rem;
+justify-content: center;
+}
+
+.testimonial-arrow {
+width: 32px;
+height: 32px;
+font-size: 12px;
+}
+
+.testimonials-wrapper {
+gap: 1rem;
+overflow-x: auto;
+scroll-behavior: smooth;
+-webkit-overflow-scrolling: touch;
+flex-wrap: nowrap;
+padding: 0.5rem 0;
+}
+
+.testimonial-item {
+flex: 0 0 90%;
+max-width: 280px;
+}
+
+/* NEWSLETTER MOBILE */
+.newsletter-final-section {
+padding: 2rem 1rem;
+}
+
+.newsletter-wrapper {
+flex-direction: column !important;
+gap: 1.5rem !important;
+}
+
+.newsletter-text h2 {
+font-size: 20px;
+text-align: center;
+}
+
+.newsletter-text p {
+font-size: 11px;
+}
+
+.newsletter-form-group {
+flex-direction: column !important;
+gap: 0.75rem;
+}
+
+.newsletter-email-input {
+width: 100%;
+font-size: 12px;
+padding: 10px;
+}
+
+.btn-subscribe-final {
+width: 100%;
+font-size: 12px;
+padding: 10px;
+}
+
+.spice-land-logo {
+width: 70px;
+height: 70px;
+}
+
+.newsletter-logo-section h3 {
+font-size: 14px;
+}
+
+.social-footer {
+gap: 0.5rem;
+}
+
+.social-footer a {
+width: 32px;
+height: 32px;
+font-size: 12px;
+}
+}
+
+/* ===== TABLET RESPONSIVENESS (577px - 768px) ===== */
+@media(min-width: 577px) and (max-width: 768px) {
+/* NAVBAR TABLET */
+.logo img {
+width: 70px;
+}
+
+.nav-link {
+font-size: 11px;
+}
+
+.order-btn {
+font-size: 11px;
+padding: 8px 12px;
+}
+
+/* HERO TABLET */
+.hero {
+min-height: 70vh;
+padding: 2rem;
+}
+
+.hero-content {
+gap: 2rem;
+padding: 2rem 0;
+}
+
+.hero-left h1 {
+font-size: 28px;
+}
+
+.hero-left p {
+font-size: 13px;
+}
+
+.hero-buttons {
+gap: 1rem;
+}
+
+.btn-red, .btn-dark2 {
+font-size: 12px;
+padding: 10px 20px;
+}
+
+.hero-logo {
+width: 300px;
+height: 300px;
+}
+
+.hero-video-bg {
+width: 300px;
+height: 300px;
+}
+
+/* TOP FEATURES TABLET */
+.top-features {
+grid-template-columns: 1fr 1fr;
+gap: 1.5rem;
+padding: 2rem;
+}
+
+.mini-item i {
+font-size: 2rem;
+}
+
+.mini-item h6 {
+font-size: 12px;
+}
+
+/* DISHES TABLET */
+.dishes-container {
+gap: 1rem;
+padding: 1.5rem;
+}
+
+.slider-arrow {
+width: 38px;
+height: 38px;
+font-size: 13px;
+}
+
+.dish-card {
+width: 180px;
+height: 240px;
+}
+
+/* STATS TABLET */
+.stats-section {
+grid-template-columns: 1fr 1fr 1fr;
+gap: 1rem;
+}
+
+.stat-number {
+font-size: 22px;
+}
+
+.stat-text {
+font-size: 10px;
+}
+
+/* HUNGRY SECTION TABLET */
+.hungry-section {
+padding: 3rem 2rem;
+}
+
+.hungry-left h2 {
+font-size: 26px;
+}
+
+.hungry-left p {
+font-size: 12px;
+}
+
+.btn-select {
+font-size: 12px;
+padding: 10px 20px;
+}
+
+/* COMBO SECTION TABLET */
+.special-combo-section {
+padding: 3rem 2rem;
+}
+
+.combo-info h3 {
+font-size: 24px;
+}
+
+.combo-info p {
+font-size: 12px;
+}
+
+.combo-images {
+height: 300px;
+}
+
+.combo-img-1, .combo-img-2, .combo-img-3 {
+width: 110px !important;
+}
+
+/* TESTIMONIALS TABLET */
+.testimonials-section {
+padding: 3rem 2rem;
+}
+
+.testimonials-header h2 {
+font-size: 28px;
+}
+
+.testimonials-wrapper {
+gap: 1.5rem;
+}
+
+.testimonial-item {
+flex: 0 0 calc(50% - 0.75rem);
+}
+
+.testimonial-arrow {
+width: 38px;
+height: 38px;
+font-size: 13px;
+}
+
+/* NEWSLETTER TABLET */
+.newsletter-final-section {
+padding: 3rem 2rem;
+}
+
+.newsletter-text h2 {
+font-size: 26px;
+}
+
+.newsletter-text p {
+font-size: 12px;
+}
+
+.newsletter-form-group {
+flex-direction: row !important;
+gap: 1rem;
+}
+
+.newsletter-email-input {
+flex: 1;
+font-size: 13px;
+}
+
+.btn-subscribe-final {
+width: auto;
+font-size: 13px;
+padding: 12px 25px;
+}
+
+.spice-land-logo {
+width: 90px;
+height: 90px;
+}
+
+.newsletter-logo-section h3 {
+font-size: 16px;
+}
+
+.social-footer a {
+width: 38px;
+height: 38px;
+font-size: 13px;
+}
+}
+
 
