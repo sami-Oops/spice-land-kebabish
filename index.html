@@ -15,41 +15,63 @@
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg py-4 navbar-fixed">
-        <div class="container-fluid px-5">
+    <nav class="navbar navbar-fixed">
+        <div class="navbar-inner">
             <a class="navbar-brand logo">
-                <img src="images/logo.jpeg">
+                <img src="images/logo.jpeg" alt="Spice Land Logo">
             </a>
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link active">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">ABOUT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">MENU</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">GALLERY</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">CONTACT</a>
-                </li>
+            <!-- DESKTOP MENU -->
+            <ul class="navbar-nav navbar-menu-desktop">
+                <li class="nav-item"><a class="nav-link active">HOME</a></li>
+                <li class="nav-item"><a class="nav-link">ABOUT</a></li>
+                <li class="nav-item"><a class="nav-link">MENU</a></li>
+                <li class="nav-item"><a class="nav-link">GALLERY</a></li>
+                <li class="nav-item"><a class="nav-link">CONTACT</a></li>
             </ul>
-            <button class="order-btn">
+            <button class="order-btn order-btn-desktop">
                 ORDER NOW <i class="fa-solid fa-shopping-basket ms-2"></i>
+            </button>
+            <!-- HAMBURGER -->
+            <button class="hamburger-toggle" id="hamburgerToggle" onclick="toggleMobileMenu()" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
     </nav>
 
+    <!-- MOBILE FULLSCREEN OVERLAY MENU (Pepe's style) -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="mobile-menu-logo">
+            <img src="images/logo.jpeg" alt="Spice Land Logo">
+        </div>
+        <ul class="mobile-menu-list">
+            <li><a class="mobile-menu-link" onclick="toggleMobileMenu()">HOME</a></li>
+            <li><a class="mobile-menu-link" onclick="toggleMobileMenu()">ABOUT</a></li>
+            <li><a class="mobile-menu-link" onclick="toggleMobileMenu()">MENU</a></li>
+            <li><a class="mobile-menu-link" onclick="toggleMobileMenu()">GALLERY</a></li>
+            <li><a class="mobile-menu-link" onclick="toggleMobileMenu()">CONTACT</a></li>
+        </ul>
+        <button class="mobile-order-btn" onclick="toggleMobileMenu()">
+            ORDER NOW <i class="fa-solid fa-shopping-basket ms-2"></i>
+        </button>
+        <div class="mobile-social-links">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </div>
+
     <!-- MAIN CONTENT -->
     <div class="main-container">
-        <!-- LEFT COLUMN -->
         <div class="left-column">
+
             <!-- HERO SECTION -->
             <section class="hero">
-                <div class="container-fluid px-5">
+                <div class="hero-container">
                     <div class="hero-content">
                         <div class="hero-left">
                             <h1>
@@ -119,27 +141,27 @@
                     </button>
                     <div class="dish-slider" id="dishSlider">
                         <div class="dish-card">
-                            <img src="images/RESHMI KEBAB.jpeg">
+                            <img src="images/RESHMI KEBAB.jpeg" alt="Reshmi Kebab">
                             <h5>RESHMI KEBAB</h5>
                             <p>Rs. 660</p>
                         </div>
                         <div class="dish-card">
-                            <img src="images/CHICKEN TIKKA.jpeg">
+                            <img src="images/CHICKEN TIKKA.jpeg" alt="Chicken Tikka">
                             <h5>CHICKEN TIKKA</h5>
                             <p>Rs. 600</p>
                         </div>
                         <div class="dish-card">
-                            <img src="images/SEEKH KEBAB.jpeg">
+                            <img src="images/SEEKH KEBAB.jpeg" alt="Seekh Kebab">
                             <h5>SEEKH KEBAB</h5>
                             <p>Rs. 550</p>
                         </div>
                         <div class="dish-card">
-                            <img src="images/BBQ PLATTER.png">
+                            <img src="images/BBQ PLATTER.png" alt="BBQ Platter">
                             <h5>BBQ PLATTER</h5>
                             <p>Rs. 1200</p>
                         </div>
                         <div class="dish-card">
-                            <img src="images/ZINGER BURGER.jpeg">
+                            <img src="images/ZINGER BURGER.jpeg" alt="Zinger Burger">
                             <h5>ZINGER BURGER</h5>
                             <p>Rs. 550</p>
                         </div>
@@ -186,7 +208,7 @@
                             <p>HAPPY CUSTOMERS</p>
                         </div>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item stat-item-cta">
                         <div>
                             <h3>VISIT US TODAY!</h3>
                             <p>We can't wait to serve you</p>
@@ -204,7 +226,7 @@
                         <button class="btn-order-now">ORDER NOW</button>
                     </div>
                     <div class="hungry-right">
-                        <img src="images/ZINGER BURGER.jpeg" alt="Delivery Bike" class="hungry-img">
+                        <img src="images/ZINGER BURGER.jpeg" alt="Order Food" class="hungry-img">
                     </div>
                 </div>
             </section>
@@ -216,7 +238,7 @@
                 </div>
                 <div class="combo-wrapper">
                     <div class="combo-images">
-                        <img src="images/BBQ PLATTER.png" alt="Platter 1" class="combo-img combo-img-1">
+                        <img src="images/BBQ PLATTER.png" alt="Platter" class="combo-img combo-img-1">
                         <img src="images/CHICKEN TIKKA.jpeg" alt="Tikka" class="combo-img combo-img-2">
                         <img src="images/SEEKH KEBAB.jpeg" alt="Kebab" class="combo-img combo-img-3">
                     </div>
@@ -259,7 +281,6 @@
                             <p class="testimonial-role">Food Enthusiast</p>
                             <p class="testimonial-text">"Best kebabs in the city! The flavors are authentic and the quality is unmatched."</p>
                         </div>
-
                         <div class="testimonial-item">
                             <div class="testimonial-avatar">
                                 <i class="fa-solid fa-user"></i>
@@ -268,7 +289,6 @@
                             <p class="testimonial-role">Regular Customer</p>
                             <p class="testimonial-text">"Amazing delivery service and hot, fresh food every time. Highly recommend!"</p>
                         </div>
-
                         <div class="testimonial-item">
                             <div class="testimonial-avatar">
                                 <i class="fa-solid fa-user"></i>
@@ -309,6 +329,7 @@
                     </div>
                 </div>
             </section>
+
         </div>
     </div>
 
@@ -359,9 +380,7 @@
     </div>
 
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js">
-       
-    </script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
