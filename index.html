@@ -14,24 +14,29 @@
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-fixed">
+    <!-- NAVBAR — Pepe's style: logo left | links center | CTA right -->
+    <nav class="navbar-fixed" id="mainNavbar">
         <div class="navbar-inner">
-            <a class="navbar-brand logo">
+            <!-- LOGO -->
+            <a class="navbar-brand logo" href="#">
                 <img src="images/logo.jpeg" alt="Spice Land Logo">
             </a>
-            <!-- DESKTOP MENU -->
-            <ul class="navbar-nav navbar-menu-desktop">
-                <li class="nav-item"><a class="nav-link active">HOME</a></li>
-                <li class="nav-item"><a class="nav-link">ABOUT</a></li>
-                <li class="nav-item"><a class="nav-link">MENU</a></li>
-                <li class="nav-item"><a class="nav-link">GALLERY</a></li>
-                <li class="nav-item"><a class="nav-link">CONTACT</a></li>
+
+            <!-- DESKTOP CENTER LINKS -->
+            <ul class="navbar-menu-desktop" id="desktopMenu">
+                <li><a class="nav-link active" href="#home">HOME</a></li>
+                <li><a class="nav-link" href="#about">ABOUT</a></li>
+                <li><a class="nav-link" href="#menu">MENU</a></li>
+                <li><a class="nav-link" href="#gallery">GALLERY</a></li>
+                <li><a class="nav-link" href="#contact">CONTACT</a></li>
             </ul>
+
+            <!-- DESKTOP ORDER BUTTON -->
             <button class="order-btn order-btn-desktop">
                 ORDER NOW <i class="fa-solid fa-shopping-basket ms-2"></i>
             </button>
-            <!-- HAMBURGER -->
+
+            <!-- HAMBURGER (mobile only) -->
             <button class="hamburger-toggle" id="hamburgerToggle" onclick="toggleMobileMenu()" aria-label="Open menu">
                 <span></span>
                 <span></span>
@@ -40,7 +45,7 @@
         </div>
     </nav>
 
-    <!-- MOBILE FULLSCREEN OVERLAY MENU (Pepe's style) -->
+    <!-- MOBILE FULLSCREEN OVERLAY MENU -->
     <div class="mobile-menu-overlay" id="mobileMenu">
         <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">
             <i class="fa-solid fa-xmark"></i>
@@ -49,11 +54,11 @@
             <img src="images/logo.jpeg" alt="Spice Land Logo">
         </div>
         <ul class="mobile-menu-list">
-            <li><a class="mobile-menu-link" onclick="toggleMobileMenu()">HOME</a></li>
-            <li><a class="mobile-menu-link" onclick="toggleMobileMenu()">ABOUT</a></li>
-            <li><a class="mobile-menu-link" onclick="toggleMobileMenu()">MENU</a></li>
-            <li><a class="mobile-menu-link" onclick="toggleMobileMenu()">GALLERY</a></li>
-            <li><a class="mobile-menu-link" onclick="toggleMobileMenu()">CONTACT</a></li>
+            <li><a class="mobile-menu-link" href="#home" onclick="toggleMobileMenu()">HOME</a></li>
+            <li><a class="mobile-menu-link" href="#about" onclick="toggleMobileMenu()">ABOUT</a></li>
+            <li><a class="mobile-menu-link" href="#menu" onclick="toggleMobileMenu()">MENU</a></li>
+            <li><a class="mobile-menu-link" href="#gallery" onclick="toggleMobileMenu()">GALLERY</a></li>
+            <li><a class="mobile-menu-link" href="#contact" onclick="toggleMobileMenu()">CONTACT</a></li>
         </ul>
         <button class="mobile-order-btn" onclick="toggleMobileMenu()">
             ORDER NOW <i class="fa-solid fa-shopping-basket ms-2"></i>
@@ -70,7 +75,7 @@
         <div class="left-column">
 
             <!-- HERO SECTION -->
-            <section class="hero">
+            <section class="hero" id="home">
                 <div class="hero-container">
                     <div class="hero-content">
                         <div class="hero-left">
@@ -101,7 +106,7 @@
             </section>
 
             <!-- TOP FEATURES -->
-            <section class="signature-section">
+            <section class="signature-section" id="menu">
                 <div class="top-features">
                     <div class="mini-item">
                         <i class="fa-solid fa-leaf"></i>
@@ -133,43 +138,50 @@
                     </div>
                 </div>
 
-                <!-- SIGNATURE DISHES -->
+                <!-- SIGNATURE DISHES SLIDER -->
                 <h2>OUR <span>SIGNATURE</span> DISHES</h2>
-                <div class="dishes-container">
-                    <button class="slider-arrow arrow-left" onclick="scrollDishes(-1)">
+
+                <div class="slider-section" id="dishSliderSection">
+                    <button class="slider-arrow arrow-left" id="dishPrev" aria-label="Previous">
                         <i class="fa-solid fa-chevron-left"></i>
                     </button>
-                    <div class="dish-slider" id="dishSlider">
-                        <div class="dish-card">
-                            <img src="images/RESHMI KEBAB.jpeg" alt="Reshmi Kebab">
-                            <h5>RESHMI KEBAB</h5>
-                            <p>Rs. 660</p>
-                        </div>
-                        <div class="dish-card">
-                            <img src="images/CHICKEN TIKKA.jpeg" alt="Chicken Tikka">
-                            <h5>CHICKEN TIKKA</h5>
-                            <p>Rs. 600</p>
-                        </div>
-                        <div class="dish-card">
-                            <img src="images/SEEKH KEBAB.jpeg" alt="Seekh Kebab">
-                            <h5>SEEKH KEBAB</h5>
-                            <p>Rs. 550</p>
-                        </div>
-                        <div class="dish-card">
-                            <img src="images/BBQ PLATTER.png" alt="BBQ Platter">
-                            <h5>BBQ PLATTER</h5>
-                            <p>Rs. 1200</p>
-                        </div>
-                        <div class="dish-card">
-                            <img src="images/ZINGER BURGER.jpeg" alt="Zinger Burger">
-                            <h5>ZINGER BURGER</h5>
-                            <p>Rs. 550</p>
+                    <div class="slider-track-wrapper">
+                        <div class="dish-slider" id="dishSlider">
+                            <div class="dish-card" onclick="openDishModal('reshmi-kebab')">
+                                <img src="images/RESHMI KEBAB.jpeg" alt="Reshmi Kebab">
+                                <h5>RESHMI KEBAB</h5>
+                                <p>Rs. 660</p>
+                            </div>
+                            <div class="dish-card" onclick="openDishModal('chicken-tikka')">
+                                <img src="images/CHICKEN TIKKA.jpeg" alt="Chicken Tikka">
+                                <h5>CHICKEN TIKKA</h5>
+                                <p>Rs. 600</p>
+                            </div>
+                            <div class="dish-card" onclick="openDishModal('seekh-kebab')">
+                                <img src="images/SEEKH KEBAB.jpeg" alt="Seekh Kebab">
+                                <h5>SEEKH KEBAB</h5>
+                                <p>Rs. 550</p>
+                            </div>
+                            <div class="dish-card" onclick="openDishModal('bbq-platter')">
+                                <img src="images/BBQ PLATTER.png" alt="BBQ Platter">
+                                <h5>BBQ PLATTER</h5>
+                                <p>Rs. 1200</p>
+                            </div>
+                            <div class="dish-card" onclick="openDishModal('zinger-burger')">
+                                <img src="images/ZINGER BURGER.jpeg" alt="Zinger Burger">
+                                <h5>ZINGER BURGER</h5>
+                                <p>Rs. 550</p>
+                            </div>
                         </div>
                     </div>
-                    <button class="slider-arrow arrow-right" onclick="scrollDishes(1)">
+                    <button class="slider-arrow arrow-right" id="dishNext" aria-label="Next">
                         <i class="fa-solid fa-chevron-right"></i>
                     </button>
                 </div>
+
+                <!-- Dots -->
+                <div class="slider-dots" id="dishDots"></div>
+
                 <div class="text-center">
                     <button class="menu-btn">
                         <i class="fa-solid fa-fire me-2"></i>VIEW FULL MENU
@@ -178,7 +190,7 @@
             </section>
 
             <!-- STATS SECTION -->
-            <section class="stats-section">
+            <section class="stats-section" id="about">
                 <div class="stats-box">
                     <div class="stat-item">
                         <i class="fa-regular fa-clock"></i>
@@ -264,48 +276,62 @@
             </section>
 
             <!-- TESTIMONIALS SECTION -->
-            <section class="testimonials-section">
+            <section class="testimonials-section" id="gallery">
                 <div class="testimonials-header">
                     <h2>WHAT OUR <span>CUSTOMERS</span> SAY</h2>
                 </div>
-                <div class="testimonials-container">
-                    <button class="testimonial-arrow arrow-left-testimonial" onclick="scrollTestimonials(-1)">
+
+                <div class="slider-section" id="testimonialSliderSection">
+                    <button class="testimonial-arrow slider-arrow arrow-left" id="testPrev" aria-label="Previous">
                         <i class="fa-solid fa-chevron-left"></i>
                     </button>
-                    <div class="testimonials-wrapper" id="testimonialsSlider">
-                        <div class="testimonial-item">
-                            <div class="testimonial-avatar">
-                                <i class="fa-solid fa-user"></i>
+                    <div class="slider-track-wrapper">
+                        <div class="testimonials-wrapper" id="testimonialsSlider">
+                            <div class="testimonial-item">
+                                <div class="testimonial-avatar">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <h4>Ali Khan</h4>
+                                <p class="testimonial-role">Food Enthusiast</p>
+                                <p class="testimonial-text">"Best kebabs in the city! The flavors are authentic and the quality is unmatched."</p>
                             </div>
-                            <h4>Ali Khan</h4>
-                            <p class="testimonial-role">Food Enthusiast</p>
-                            <p class="testimonial-text">"Best kebabs in the city! The flavors are authentic and the quality is unmatched."</p>
-                        </div>
-                        <div class="testimonial-item">
-                            <div class="testimonial-avatar">
-                                <i class="fa-solid fa-user"></i>
+                            <div class="testimonial-item">
+                                <div class="testimonial-avatar">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <h4>Sarah Ahmed</h4>
+                                <p class="testimonial-role">Regular Customer</p>
+                                <p class="testimonial-text">"Amazing delivery service and hot, fresh food every time. Highly recommend!"</p>
                             </div>
-                            <h4>Sarah Ahmed</h4>
-                            <p class="testimonial-role">Regular Customer</p>
-                            <p class="testimonial-text">"Amazing delivery service and hot, fresh food every time. Highly recommend!"</p>
-                        </div>
-                        <div class="testimonial-item">
-                            <div class="testimonial-avatar">
-                                <i class="fa-solid fa-user"></i>
+                            <div class="testimonial-item">
+                                <div class="testimonial-avatar">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <h4>Hassan Malik</h4>
+                                <p class="testimonial-role">Food Blogger</p>
+                                <p class="testimonial-text">"The perfect blend of spice and flavor. Worth every penny. Best combos!"</p>
                             </div>
-                            <h4>Hassan Malik</h4>
-                            <p class="testimonial-role">Food Blogger</p>
-                            <p class="testimonial-text">"The perfect blend of spice and flavor. Worth every penny. Best combos!"</p>
+                            <div class="testimonial-item">
+                                <div class="testimonial-avatar">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <h4>Zara Hussain</h4>
+                                <p class="testimonial-role">Loyal Customer</p>
+                                <p class="testimonial-text">"Been ordering here for 3 years. Never disappoints. The BBQ platter is a must!"</p>
+                            </div>
                         </div>
                     </div>
-                    <button class="testimonial-arrow arrow-right-testimonial" onclick="scrollTestimonials(1)">
+                    <button class="testimonial-arrow slider-arrow arrow-right" id="testNext" aria-label="Next">
                         <i class="fa-solid fa-chevron-right"></i>
                     </button>
                 </div>
+
+                <!-- Dots -->
+                <div class="slider-dots" id="testDots"></div>
             </section>
 
             <!-- NEWSLETTER SECTION -->
-            <section class="newsletter-final-section">
+            <section class="newsletter-final-section" id="contact">
                 <div class="newsletter-wrapper">
                     <div class="newsletter-text">
                         <h2>STAY UPDATED<br><span>WITH OUR OFFERS</span></h2>
