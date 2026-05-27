@@ -1,50 +1,478 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery | Spice Land Kebabish</title>
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Gallery | Spice Land Kebabish</title>
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Poppins:wght@300;400;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="css/style.css">
+
 </head>
+
 <body>
-  <header class="site-header py-3">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Spice Land Kebabish</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-            <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main class="py-5 text-white">
-    <div class="container">
-      <h1>Gallery</h1>
-      <p class="lead text-muted">See the flavors and presentation of our best dishes.</p>
-      <div class="row g-4 mt-4">
-        <div class="col-md-4"><div class="gallery-card rounded-4 p-4">Grilled kebabs with spicy sauce.</div></div>
-        <div class="col-md-4"><div class="gallery-card rounded-4 p-4">Signature combo served hot.</div></div>
-        <div class="col-md-4"><div class="gallery-card rounded-4 p-4">Fresh ingredients and quality cooking.</div></div>
-      </div>
-    </div>
-  </main>
-  <footer class="footer bg-dark text-white py-4">
-    <div class="container text-center">
-      <p class="mb-1">Spice Land Kebabish</p>
-      <small>Built with Bootstrap and local file links.</small>
-    </div>
-  </footer>
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+
+<!-- HEADER -->
+
+<nav class="navbar-fixed" id="mainNavbar">
+
+<div class="navbar-inner">
+
+<a class="navbar-brand logo"
+href="index.html">
+
+<img src="images/logo.jpeg">
+
+</a>
+
+<ul class="navbar-menu-desktop">
+
+<li>
+<a class="nav-link"
+href="index.html">
+HOME
+</a>
+</li>
+
+<li>
+<a class="nav-link"
+href="about.html">
+ABOUT
+</a>
+</li>
+
+<li>
+<a class="nav-link"
+href="menu.html">
+MENU
+</a>
+</li>
+
+<li>
+<a class="nav-link active"
+href="gallery.html">
+GALLERY
+</a>
+</li>
+
+<li>
+<a class="nav-link"
+href="contact.html">
+CONTACT
+</a>
+</li>
+
+</ul>
+
+<button class="order-btn order-btn-desktop">
+
+ORDER NOW
+
+<i class="fa-solid fa-shopping-basket ms-2"></i>
+
+</button>
+
+<button class="hamburger-toggle"
+onclick="toggleMobileMenu()">
+
+<span></span>
+<span></span>
+<span></span>
+
+</button>
+
+</div>
+
+</nav>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu-overlay"
+id="mobileMenu">
+
+<button class="mobile-menu-close"
+onclick="toggleMobileMenu()">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<div class="mobile-menu-logo">
+
+<img src="images/logo.jpeg">
+
+</div>
+
+<ul class="mobile-menu-list">
+
+<li>
+<a class="mobile-menu-link"
+href="index.html">
+HOME
+</a>
+</li>
+
+<li>
+<a class="mobile-menu-link"
+href="about.html">
+ABOUT
+</a>
+</li>
+
+<li>
+<a class="mobile-menu-link"
+href="menu.html">
+MENU
+</a>
+</li>
+
+<li>
+<a class="mobile-menu-link"
+href="gallery.html">
+GALLERY
+</a>
+</li>
+
+<li>
+<a class="mobile-menu-link"
+href="contact.html">
+CONTACT
+</a>
+</li>
+
+</ul>
+
+</div>
+
+<!-- HERO -->
+
+<section class="about-hero">
+
+<div class="about-hero-content">
+
+<h1>
+
+FOOD
+
+<span>
+
+GALLERY
+
+</span>
+
+</h1>
+
+<p>
+
+Our Delicious Moments
+
+</p>
+
+</div>
+
+</section>
+
+<!-- GALLERY GRID -->
+
+<section class="gallery-main">
+
+<div class="gallery-title">
+
+<h2>
+
+OUR
+
+<span>
+
+SPECIAL DISHES
+
+</span>
+
+</h2>
+
+<p>
+
+Fresh BBQ • Traditional Taste • Premium Quality
+
+</p>
+
+</div>
+
+<div class="gallery-grid">
+
+<div class="gallery-card">
+
+<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1">
+
+<div class="gallery-overlay">
+
+<h3>
+
+Chicken BBQ
+
+</h3>
+
+</div>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947">
+
+<div class="gallery-overlay">
+
+<h3>
+
+Seekh Kebab
+
+</h3>
+
+</div>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
+
+<div class="gallery-overlay">
+
+<h3>
+
+Family Combo
+
+</h3>
+
+</div>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+
+<div class="gallery-overlay">
+
+<h3>
+
+Special Grill
+
+</h3>
+
+</div>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+
+<div class="gallery-overlay">
+
+<h3>
+
+Burger Meal
+
+</h3>
+
+</div>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="https://images.unsplash.com/photo-1600891964092-4316c288032e">
+
+<div class="gallery-overlay">
+
+<h3>
+
+BBQ Feast
+
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section class="why-section">
+
+<h2>
+
+EXPERIENCE
+
+THE FLAVOR
+
+</h2>
+
+<div class="why-grid">
+
+<div class="why-card">
+
+<i class="fa-solid fa-fire"></i>
+
+<h3>
+
+Live BBQ
+
+</h3>
+
+<p>
+
+Freshly grilled every day
+
+</p>
+
+</div>
+
+<div class="why-card">
+
+<i class="fa-solid fa-pepper-hot"></i>
+
+<h3>
+
+Authentic Spice
+
+</h3>
+
+<p>
+
+Traditional recipes
+
+</p>
+
+</div>
+
+<div class="why-card">
+
+<i class="fa-solid fa-star"></i>
+
+<h3>
+
+Premium Quality
+
+</h3>
+
+<p>
+
+Top ingredients only
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<section class="newsletter-final-section">
+
+<div class="newsletter-wrapper">
+
+<div class="newsletter-text">
+
+<h2>
+
+STAY UPDATED
+
+<span>
+
+WITH OUR OFFERS
+
+</span>
+
+</h2>
+
+<p>
+
+Get latest deals and BBQ updates
+
+</p>
+
+<div class="newsletter-form-group">
+
+<input type="email"
+placeholder="Enter Email"
+class="newsletter-email-input">
+
+<button class="btn-subscribe-final">
+
+SUBSCRIBE
+
+</button>
+
+</div>
+
+</div>
+
+<div class="newsletter-logo-section">
+
+<div class="spice-land-logo">
+
+<img src="images/logo.jpeg">
+
+</div>
+
+<h3>
+
+SPICE LAND
+
+KEBABISH
+
+</h3>
+
+<div class="social-footer">
+
+<a href="#">
+<i class="fa-brands fa-facebook"></i>
+</a>
+
+<a href="#">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="#">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/script.js"></script>
+
 </body>
+
 </html>

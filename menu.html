@@ -1,89 +1,403 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu | Spice Land Kebabish</title>
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<title>Menu | Spice Land Kebabish</title>
+
+<link rel="stylesheet"
+href="bootstrap/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Poppins:wght@300;400;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="css/style.css">
+
 </head>
+
 <body>
-  <header class="site-header py-3">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Spice Land Kebabish</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
-            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main class="py-5 text-white">
-    <div class="container">
-      <h1>Menu</h1>
-      <p class="lead text-muted">Discover our best-selling dishes and combos.</p>
-      <div class="row g-4 mt-4">
-        <div class="col-md-4">
-          <div class="menu-card p-4 rounded-4">
-            <h2>Reshmi Kebab</h2>
-            <p>Juicy chicken kebabs marinated in spices and grilled perfectly.</p>
-            <p class="price">Rs. 650</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="menu-card p-4 rounded-4">
-            <h2>Chicken Tikka</h2>
-            <p>Smoky and tender chicken pieces served hot with chutney.</p>
-            <p class="price">Rs. 600</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="menu-card p-4 rounded-4">
-            <h2>Seekh Kebab</h2>
-            <p>Spiced minced meat on skewers, grilled to golden perfection.</p>
-            <p class="price">Rs. 550</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="menu-card p-4 rounded-4">
-            <h2>BBQ Platter</h2>
-            <p>Mixed grill platter for those who want a full feast.</p>
-            <p class="price">Rs. 1200</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="menu-card p-4 rounded-4">
-            <h2>Zinger Burger</h2>
-            <p>Crispy chicken burger with spicy sauce and fresh vegetables.</p>
-            <p class="price">Rs. 550</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="menu-card p-4 rounded-4">
-            <h2>Family Feast</h2>
-            <p>4 chicken tikka, 2 seekh kebabs, roti, and a drink.</p>
-            <p class="price">Rs. 1999</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <footer class="footer bg-dark text-white py-4">
-    <div class="container text-center">
-      <p class="mb-1">Spice Land Kebabish</p>
-      <small>Built with Bootstrap and local file links.</small>
-    </div>
-  </footer>
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+
+<!-- HEADER -->
+
+<nav class="navbar-fixed"
+id="mainNavbar">
+
+<div class="navbar-inner">
+
+<a class="navbar-brand logo"
+href="index.html">
+
+<img src="images/logo.jpeg">
+
+</a>
+
+<ul class="navbar-menu-desktop">
+
+<li>
+<a class="nav-link"
+href="index.html">
+HOME
+</a>
+</li>
+
+<li>
+<a class="nav-link"
+href="about.html">
+ABOUT
+</a>
+</li>
+
+<li>
+<a class="nav-link active"
+href="menu.html">
+MENU
+</a>
+</li>
+
+<li>
+<a class="nav-link"
+href="gallery.html">
+GALLERY
+</a>
+</li>
+
+<li>
+<a class="nav-link"
+href="contact.html">
+CONTACT
+</a>
+</li>
+
+</ul>
+
+<button class="order-btn order-btn-desktop">
+
+ORDER NOW
+
+<i class="fa-solid fa-shopping-basket ms-2"></i>
+
+</button>
+
+<button class="hamburger-toggle"
+onclick="toggleMobileMenu()">
+
+<span></span>
+<span></span>
+<span></span>
+
+</button>
+
+</div>
+
+</nav>
+
+
+<!-- MOBILE -->
+
+<div class="mobile-menu-overlay"
+id="mobileMenu">
+
+<button class="mobile-menu-close"
+onclick="toggleMobileMenu()">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<div class="mobile-menu-logo">
+
+<img src="images/logo.jpeg">
+
+</div>
+
+<ul class="mobile-menu-list">
+
+<li><a class="mobile-menu-link"
+href="index.html">HOME</a></li>
+
+<li><a class="mobile-menu-link"
+href="about.html">ABOUT</a></li>
+
+<li><a class="mobile-menu-link"
+href="menu.html">MENU</a></li>
+
+<li><a class="mobile-menu-link"
+href="gallery.html">GALLERY</a></li>
+
+<li><a class="mobile-menu-link"
+href="contact.html">CONTACT</a></li>
+
+</ul>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="about-hero">
+
+<div class="about-overlay"></div>
+
+<div class="about-hero-content">
+
+<h1>
+
+OUR
+
+<span>
+
+MENU
+
+</span>
+
+</h1>
+
+<p>
+
+Fresh BBQ • Premium Taste • Authentic Flavor
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- MENU ITEMS -->
+
+<section class="why-section">
+
+<h2>
+
+POPULAR DISHES
+
+</h2>
+
+<div class="why-grid">
+
+<div class="why-card">
+
+<img src="images/RESHMI KEBAB.jpeg"
+style="width:100%;height:220px;object-fit:cover;border-radius:12px;">
+
+<h3>
+
+RESHMI KEBAB
+
+</h3>
+
+<p>
+
+Rs.660
+
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<img src="images/CHICKEN TIKKA.jpeg"
+style="width:100%;height:220px;object-fit:cover;border-radius:12px;">
+
+<h3>
+
+CHICKEN TIKKA
+
+</h3>
+
+<p>
+
+Rs.600
+
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<img src="images/SEEKH KEBAB.jpeg"
+style="width:100%;height:220px;object-fit:cover;border-radius:12px;">
+
+<h3>
+
+SEEKH KEBAB
+
+</h3>
+
+<p>
+
+Rs.550
+
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<img src="images/ZINGER BURGER.jpeg"
+style="width:100%;height:220px;object-fit:cover;border-radius:12px;">
+
+<h3>
+
+ZINGER BURGER
+
+</h3>
+
+<p>
+
+Rs.550
+
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<img src="images/BBQ PLATTER.png"
+style="width:100%;height:220px;object-fit:cover;border-radius:12px;">
+
+<h3>
+
+BBQ PLATTER
+
+</h3>
+
+<p>
+
+Rs.1200
+
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947"
+style="width:100%;height:220px;object-fit:cover;border-radius:12px;">
+
+<h3>
+
+SPECIAL COMBO
+
+</h3>
+
+<p>
+
+Rs.1999
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<section class="newsletter-final-section">
+
+<div class="newsletter-wrapper">
+
+<div class="newsletter-text">
+
+<h2>
+
+STAY UPDATED
+
+<br>
+
+<span>
+
+WITH OUR OFFERS
+
+</span>
+
+</h2>
+
+<p>
+
+Get exclusive deals and offers
+
+</p>
+
+<div class="newsletter-form-group">
+
+<input type="email"
+placeholder="Enter email"
+class="newsletter-email-input">
+
+<button class="btn-subscribe-final">
+
+SUBSCRIBE
+
+</button>
+
+</div>
+
+</div>
+
+<div class="newsletter-logo-section">
+
+<div class="spice-land-logo">
+
+<img src="images/logo.jpeg">
+
+</div>
+
+<h3>
+
+SPICE LAND
+
+<br>
+
+KEBABISH
+
+</h3>
+
+<div class="social-footer">
+
+<a href="#"><i class="fa-brands fa-facebook"></i></a>
+
+<a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+<a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/script.js"></script>
+
 </body>
+
 </html>

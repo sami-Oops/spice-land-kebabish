@@ -1,75 +1,363 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <title>Contact | Spice Land Kebabish</title>
+
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
-  <header class="site-header py-3">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Spice Land Kebabish</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+
+  <!-- HEADER -->
+
+  <nav class="navbar-fixed" id="mainNavbar">
+
+    <div class="navbar-inner">
+
+      <a class="navbar-brand logo" href="index.html">
+
+        <img src="images/logo.jpeg">
+
+      </a>
+
+      <ul class="navbar-menu-desktop">
+
+        <li><a class="nav-link" href="index.html">HOME</a></li>
+
+        <li><a class="nav-link" href="about.html">ABOUT</a></li>
+
+        <li><a class="nav-link" href="menu.html">MENU</a></li>
+
+        <li><a class="nav-link" href="gallery.html">GALLERY</a></li>
+
+        <li><a class="nav-link active" href="contact.html">CONTACT</a></li>
+
+      </ul>
+
+      <button class="order-btn order-btn-desktop">
+
+        ORDER NOW
+
+        <i class="fa-solid fa-shopping-basket ms-2"></i>
+
+      </button>
+
+      <button class="hamburger-toggle" id="hamburgerToggle" onclick="toggleMobileMenu()">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
+    </div>
+
+  </nav>
+
+  <!-- MOBILE MENU -->
+
+  <div class="mobile-menu-overlay" id="mobileMenu">
+
+    <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+
+      <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+    <div class="mobile-menu-logo">
+
+      <img src="images/logo.jpeg">
+
+    </div>
+
+    <ul class="mobile-menu-list">
+
+      <li>
+        <a class="mobile-menu-link" href="index.html">
+
+          HOME
+
+        </a>
+      </li>
+
+      <li>
+        <a class="mobile-menu-link" href="about.html">
+
+          ABOUT
+
+        </a>
+      </li>
+
+      <li>
+        <a class="mobile-menu-link" href="menu.html">
+
+          MENU
+
+        </a>
+      </li>
+
+      <li>
+        <a class="mobile-menu-link" href="gallery.html">
+
+          GALLERY
+
+        </a>
+      </li>
+
+      <li>
+        <a class="mobile-menu-link" href="contact.html">
+
+          CONTACT
+
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <!-- HERO -->
+
+  <section class="contact-hero">
+
+    <div class="contact-overlay"></div>
+
+    <div class="contact-content">
+
+      <h1>
+
+        CONTACT
+
+        <span>
+
+          SPICE LAND
+
+        </span>
+
+      </h1>
+
+      <p>
+
+        Get in touch with us anytime
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT SECTION -->
+
+  <section class="contact-main">
+
+    <div class="contact-left">
+
+      <h2>
+
+        LET'S TALK
+
+      </h2>
+
+      <p>
+
+        Need help with orders, reservations or menu information?
+
+        Our team is available for support and bookings.
+
+      </p>
+
+      <div class="contact-info">
+
+        <div>
+
+          <i class="fa-solid fa-location-dot"></i>
+
+          <span>
+
+            Karachi Pakistan
+
+          </span>
+
+        </div>
+
+        <div>
+
+          <i class="fa-solid fa-phone"></i>
+
+          <span>
+
+            +92 300 1234567
+
+          </span>
+
+        </div>
+
+        <div>
+
+          <i class="fa-solid fa-envelope"></i>
+
+          <span>
+
+            info@spiceland.com
+
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="contact-right">
+
+      <form>
+
+        <input type="text" placeholder="Your Name">
+
+        <input type="email" placeholder="Email">
+
+        <input type="text" placeholder="Subject">
+
+        <textarea placeholder="Message">
+
+</textarea>
+
+        <button>
+
+          SEND MESSAGE
+
         </button>
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main class="py-5 text-white">
-    <div class="container">
-      <h1>Contact</h1>
-      <p class="lead text-muted">Get in touch with us for deliveries, catering, or questions.</p>
-      <div class="row gy-4 mt-4">
-        <div class="col-lg-6">
-          <div class="contact-card p-4 rounded-4">
-            <h2>Contact Info</h2>
-            <p><strong>Phone:</strong> +92 300 0000000</p>
-            <p><strong>Email:</strong> info@spicelandkebabish.com</p>
-            <p><strong>Address:</strong> Spice Street, City Center</p>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="contact-card p-4 rounded-4">
-            <h2>Send a Message</h2>
-            <form>
-              <div class="mb-3">
-                <label class="form-label" for="name">Name</label>
-                <input class="form-control" id="name" type="text" placeholder="Your Name">
-              </div>
-              <div class="mb-3">
-                <label class="form-label" for="email">Email</label>
-                <input class="form-control" id="email" type="email" placeholder="you@example.com">
-              </div>
-              <div class="mb-3">
-                <label class="form-label" for="message">Message</label>
-                <textarea class="form-control" id="message" rows="4" placeholder="Your request"></textarea>
-              </div>
-              <button class="btn btn-danger" type="button">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>
+
+      </form>
+
     </div>
-  </main>
-  <footer class="footer bg-dark text-white py-4">
-    <div class="container text-center">
-      <p class="mb-1">Spice Land Kebabish</p>
-      <small>Built with Bootstrap and local file links.</small>
+
+  </section>
+
+  <!-- MAP -->
+
+ <!-- MAP -->
+
+<section class="map-section">
+
+<iframe
+src="https://maps.google.com/maps?q=karachi%20pakistan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+
+width="100%"
+
+height="450"
+
+style="
+border:0;
+border-radius:20px;
+"
+
+allowfullscreen
+
+loading="lazy">
+
+</iframe>
+
+</section>
+
+  <!-- FOOTER -->
+
+  <section class="newsletter-final-section">
+
+    <div class="newsletter-wrapper">
+
+      <div class="newsletter-text">
+
+        <h2>
+
+          STAY UPDATED
+
+          <span>
+
+            WITH OUR OFFERS
+
+          </span>
+
+        </h2>
+
+        <p>
+
+          Get latest deals and updates
+
+        </p>
+
+        <div class="newsletter-form-group">
+
+          <input type="email" placeholder="Enter Email" class="newsletter-email-input">
+
+          <button class="btn-subscribe-final">
+
+            SUBSCRIBE
+
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="newsletter-logo-section">
+
+        <div class="spice-land-logo">
+
+          <img src="images/logo.jpeg">
+
+        </div>
+
+        <h3>
+
+          SPICE LAND
+
+          KEBABISH
+
+        </h3>
+
+        <div class="social-footer">
+
+          <a href="#">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+
+          <a href="#">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="#">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
-  </footer>
+
+  </section>
+
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
   <script src="js/script.js"></script>
+
 </body>
+
 </html>
