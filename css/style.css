@@ -1661,6 +1661,7 @@ width:100%;
 }
 
 }
+
 /* GALLERY PAGE */
 
 .gallery-main{
@@ -1743,6 +1744,7 @@ font-size:36px;
 }
 
 }
+
 /* CONTACT PAGE */
 
 .contact-hero{
@@ -1925,6 +1927,7 @@ padding:0 20px 50px;
 }
 
 }
+
 /* ORDER PAGE */
 
 .order-hero{
@@ -2512,5 +2515,39 @@ height:55px;
 	.checkout-btn:active {
 		transform: translateY(1px);
 		transition: transform 0.06s;
+	}
+
+	/* make sure hamburger is always visible and above everything */
+	.hamburger-toggle {
+		display: flex !important;
+		position: fixed !important;
+		top: 12px !important;
+		right: 14px !important;
+		padding: 8px !important;
+		background: transparent !important;
+		border: none !important;
+		z-index: 9999 !important; /* guarantee visibility on every page */
+		/* keep size comfortable for touch */
+		min-width: 44px;
+		min-height: 44px;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* ensure the hamburger bars are visible against any background */
+	.hamburger-toggle span {
+		background: #fff !important;
+		width: 26px !important;
+		height: 3px !important;
+		border-radius: 3px !important;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.45);
+	}
+
+	/* small safe offset so fixed toggle doesn't hide page headline content */
+	.hero,
+	.contact-hero,
+	.order-hero,
+	.cart-hero {
+		padding-top: 72px; /* matches approximate header height on mobile */
 	}
 }
