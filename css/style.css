@@ -15,6 +15,153 @@ body {
     overflow-x: hidden;
 }
 
+/* --- MOBILE / TOUCH INTERACTION FIXES --- */
+/* Improve tap handling, avoid hidden overlays blocking touches, and ensure inputs stay focusable */
+html, body {
+	/* allow browser gestures and faster tap response */
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-text-size-adjust: 100%;
+}
+
+/* Make sure form controls and interactive elements receive pointer events and allow selection/caret */
+a, button, input, select, textarea {
+	touch-action: auto;               /* allow expected gestures on controls */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-user-select: text;
+	user-select: text;
+}
+
+/* Hidden overlays should not block pointer events; re-enable when opened */
+.mobile-menu-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #0d0000;
+	z-index: 2000;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0;
+	padding: 40px 20px;
+	animation: menuFadeIn 0.3s ease;
+	overflow-y: auto;
+	pointer-events: none;             /* ignore touches while closed */
+	-webkit-overflow-scrolling: touch;
+}
+
+.mobile-menu-overlay.open {
+	display: flex;
+	pointer-events: auto;             /* allow touches when visible */
+}
+
+@keyframes menuFadeIn {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+.mobile-menu-close {
+	position: absolute;
+	top: 18px;
+	right: 20px;
+	background: #ff3c00;
+	border: none;
+	color: white;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.mobile-menu-close:hover { background: #d10000; transform: scale(1.1); }
+
+.mobile-menu-logo {
+	margin-bottom: 30px;
+}
+
+.mobile-menu-logo img {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	border: 3px solid #ff3c00;
+	object-fit: cover;
+}
+
+.mobile-menu-list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 30px;
+	width: 100%;
+	text-align: center;
+}
+
+.mobile-menu-list li {
+	border-bottom: 1px solid rgba(255, 60, 0, 0.2);
+}
+
+.mobile-menu-list li:first-child { border-top: 1px solid rgba(255, 60, 0, 0.2); }
+
+.mobile-menu-link {
+	display: block;
+	color: white;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	padding: 18px 20px;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.mobile-menu-link:hover { color: #ff3c00; background: rgba(255, 60, 0, 0.08); }
+
+.mobile-order-btn {
+	background: #ff3c00;
+	border: none;
+	color: white;
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	padding: 16px 50px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 30px;
+	transition: all 0.3s ease;
+	width: 90%;
+	max-width: 320px;
+}
+
+.mobile-order-btn:hover { background: #d10000; transform: translateY(-2px); }
+
+.mobile-social-links {
+	display: flex;
+	gap: 16px;
+}
+
+.mobile-social-links a {
+	width: 44px;
+	height: 44px;
+	border: 2px solid #ff3c00;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ff3c00;
+	font-size: 18px;
+	transition: all 0.3s ease;
+	text-decoration: none;
+}
+
+.mobile-social-links a:hover { background: #ff3c00; color: white; }
+
 /* ===== NAVBAR — Pepe's style ===== */
 .navbar-fixed {
     background: #000;
@@ -159,7 +306,7 @@ body {
     border: none;
     cursor: pointer;
     padding: 8px;
-    z-index: 1100;
+    z-index: 2200; /* above overlay z-index:2000 so user can reliably open menu */
     justify-self: end;
 }
 
@@ -171,133 +318,6 @@ body {
     border-radius: 3px;
     transition: all 0.3s ease;
 }
-
-/* ===== MOBILE FULLSCREEN OVERLAY MENU ===== */
-.mobile-menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #0d0000;
-    z-index: 2000;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    padding: 40px 20px;
-    animation: menuFadeIn 0.3s ease;
-    overflow-y: auto;
-}
-
-.mobile-menu-overlay.open {
-    display: flex;
-}
-
-@keyframes menuFadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-.mobile-menu-close {
-    position: absolute;
-    top: 18px;
-    right: 20px;
-    background: #ff3c00;
-    border: none;
-    color: white;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.mobile-menu-close:hover { background: #d10000; transform: scale(1.1); }
-
-.mobile-menu-logo {
-    margin-bottom: 30px;
-}
-
-.mobile-menu-logo img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 3px solid #ff3c00;
-    object-fit: cover;
-}
-
-.mobile-menu-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 30px;
-    width: 100%;
-    text-align: center;
-}
-
-.mobile-menu-list li {
-    border-bottom: 1px solid rgba(255, 60, 0, 0.2);
-}
-
-.mobile-menu-list li:first-child { border-top: 1px solid rgba(255, 60, 0, 0.2); }
-
-.mobile-menu-link {
-    display: block;
-    color: white;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    padding: 18px 20px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.mobile-menu-link:hover { color: #ff3c00; background: rgba(255, 60, 0, 0.08); }
-
-.mobile-order-btn {
-    background: #ff3c00;
-    border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 16px 50px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-bottom: 30px;
-    transition: all 0.3s ease;
-    width: 90%;
-    max-width: 320px;
-}
-
-.mobile-order-btn:hover { background: #d10000; transform: translateY(-2px); }
-
-.mobile-social-links {
-    display: flex;
-    gap: 16px;
-}
-
-.mobile-social-links a {
-    width: 44px;
-    height: 44px;
-    border: 2px solid #ff3c00;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ff3c00;
-    font-size: 18px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.mobile-social-links a:hover { background: #ff3c00; color: white; }
 
 /* ===== HERO SECTION ===== */
 .hero {
@@ -1053,9 +1073,14 @@ body {
     justify-content: center;
     z-index: 3000;
     padding: 20px;
+    pointer-events: none;
+	-webkit-overflow-scrolling: touch;
 }
 
-.modal-overlay.active { display: flex; }
+.modal-overlay.active {
+    display: flex;
+    pointer-events: auto;
+}
 
 .modal-content {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
@@ -2401,22 +2426,86 @@ cursor:pointer;
 @media(max-width:992px){
 
 .cart-section{
-
 grid-template-columns:1fr;
-
 padding:50px 20px;
 }
 
 .cart-card{
-
 flex-direction:column;
-
 text-align:center;
 }
 
 .cart-hero h1{
-
 font-size:42px;
 }
 
+.cart-right{
+margin-top:20px;
+}
+
+.coupon-box{
+flex-direction:column;
+}
+
+.coupon-box button{
+width:100%;
+height:55px;
+}
+
+}
+
+/* --- MOBILE FAIL-SAFE & DEBUG HELPERS --- */
+/* Defensive rules for mobile touch interactions:
+   - ensure core mobile buttons accept touches
+   - provide a temporary visible focus outline to verify taps on device
+   - keep overlays from blocking touches unless explicitly open
+*/
+@media (max-width: 768px) {
+	/* Make sure commonly-used mobile controls actively accept pointer events */
+	.mobile-order-btn,
+	.add-cart-btn,
+	.checkout-btn,
+	.menu-btn,
+	.modal-add-btn,
+	.qty-control button,
+	.mobile-menu-close,
+	.hamburger-toggle,
+	.nav-link,
+	.mobile-menu-link {
+		pointer-events: auto !important;
+		touch-action: auto !important;
+		cursor: pointer;
+		-webkit-tap-highlight-color: rgba(255,60,0,0.10);
+	}
+
+	/* Temporary debug focus outline — add class "debug-focus" to <body> while testing on device
+	   (remove the class once behavior is confirmed). */
+	.debug-focus a:focus,
+	.debug-focus button:focus,
+	.debug-focus input:focus,
+	.debug-focus .mobile-menu-link:focus {
+		outline: 3px solid #ff3c00;
+		outline-offset: 2px;
+	}
+
+	/* Ensure overlays don't block page touches when closed; re-enable when open */
+	.mobile-menu-overlay,
+	.modal-overlay {
+		pointer-events: none; /* default: do not block */
+		-webkit-overflow-scrolling: touch;
+	}
+	.mobile-menu-overlay.open,
+	.modal-overlay.active {
+		pointer-events: auto; /* allow interaction when visible */
+	}
+
+	/* Small tap feedback to ensure taps register */
+	.mobile-menu-link:active,
+	.mobile-order-btn:active,
+	.add-cart-btn:active,
+	.menu-btn:active,
+	.checkout-btn:active {
+		transform: translateY(1px);
+		transition: transform 0.06s;
+	}
 }
