@@ -306,7 +306,7 @@ a, button, input, select, textarea {
     border: none;
     cursor: pointer;
     padding: 8px;
-    z-index: 5000; /* above overlay z-index:2000 so user can reliably open menu */
+    z-index: 2200; /* above overlay z-index:2000 so user can reliably open menu */
     justify-self: end;
 }
 
@@ -2512,82 +2512,5 @@ height:55px;
 	.checkout-btn:active {
 		transform: translateY(1px);
 		transition: transform 0.06s;
-	}
-}
-
-/* Mobile-specific: force hamburger visible and fix cart/contact responsiveness */
-@media (max-width: 768px) {
-	/* force hamburger display (important helps if some pages override it) */
-	.hamburger-toggle {
-		display: flex !important;
-		visibility: visible !important;
-		opacity: 1;
-	}
-
-	/* Make sure the three bars are visible against any background */
-	.hamburger-toggle span {
-		background: #fff !important;
-	}
-
-	/* CART: stack layout, make images responsive and inputs/buttons full width */
-	.cart-section {
-		padding: 20px !important;
-		grid-template-columns: 1fr !important;
-		gap: 18px !important;
-	}
-
-	.cart-card {
-		flex-direction: column !important;
-		align-items: stretch !important;
-		text-align: left !important;
-		padding: 18px !important;
-	}
-
-	.cart-card img {
-		width: 100% !important;
-		height: auto !important;
-		max-height: 360px;
-		object-fit: cover;
-		border-radius: 12px;
-		margin-bottom: 14px;
-	}
-
-	.cart-details { padding-top: 8px; }
-
-	.cart-right {
-		margin-top: 18px !important;
-		width: 100% !important;
-	}
-
-	.coupon-box {
-		flex-direction: column !important;
-		gap: 12px !important;
-	}
-
-	.coupon-box input,
-	.coupon-box button {
-		width: 100% !important;
-	}
-
-	.checkout-btn,
-	.back-order {
-		height: 52px !important;
-	}
-
-	/* CONTACT PAGE: ensure header icons visible and not overlapped */
-	.navbar-fixed {
-		position: sticky;
-		top: 0;
-		z-index: 5000; /* keep header above page content on mobile */
-	}
-
-	/* ensure overlays don't invisibly cover the header area */
-	.mobile-menu-overlay,
-	.modal-overlay {
-		pointer-events: none;
-	}
-	.mobile-menu-overlay.open,
-	.modal-overlay.active {
-		pointer-events: auto;
 	}
 }
