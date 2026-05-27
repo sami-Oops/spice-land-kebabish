@@ -35,7 +35,7 @@ href="css/style.css">
 
 <!-- HEADER -->
 
-<nav class="navbar-fixed">
+<nav class="navbar-fixed" id="mainNavbar">
 
 <div class="navbar-inner">
 
@@ -74,9 +74,65 @@ ORDER NOW
 
 </button>
 
+<button class="hamburger-toggle" id="hamburgerToggle" onclick="toggleMobileMenu()">
+
+<span></span>
+<span></span>
+<span></span>
+
+</button>
+
 </div>
 
 </nav>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu-overlay" id="mobileMenu">
+
+<button class="mobile-menu-close" onclick="toggleMobileMenu()">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<div class="mobile-menu-logo">
+
+<img src="images/logo.jpeg">
+
+</div>
+
+<ul class="mobile-menu-list">
+
+<li><a class="mobile-menu-link" href="index.html" onclick="toggleMobileMenu()">HOME</a></li>
+
+<li><a class="mobile-menu-link" href="about.html" onclick="toggleMobileMenu()">ABOUT</a></li>
+
+<li><a class="mobile-menu-link" href="menu.html" onclick="toggleMobileMenu()">MENU</a></li>
+
+<li><a class="mobile-menu-link" href="gallery.html" onclick="toggleMobileMenu()">GALLERY</a></li>
+
+<li><a class="mobile-menu-link" href="contact.html" onclick="toggleMobileMenu()">CONTACT</a></li>
+
+</ul>
+
+<button class="mobile-order-btn" onclick="toggleMobileMenu()">
+
+ORDER NOW <i class="fa-solid fa-shopping-basket ms-2"></i>
+
+</button>
+
+<div class="mobile-social-links">
+
+<a href="#"><i class="fa-brands fa-facebook"></i></a>
+
+<a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+<a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+
+</div>
+
+</div>
 
 <!-- HERO -->
 
