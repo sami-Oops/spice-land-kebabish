@@ -744,3 +744,108 @@ setupOrderPage();
 setupCartPage();
 setupCheckoutPage();
 setupModalAddToCart();
+
+(function () {
+	// helper: find closest ancestor matching selector
+	function closest(el, sel) { return el ? el.closest(sel) : null; }
+
+	// Forward mobile-order to desktop order button if present
+	function forwardClick(sourceEl, desktopSelector, fallbackEventName, detail) {
+		const desktop = document.querySelector(desktopSelector);
+		if (desktop) {
+			desktop.click();
+			return true;
+		}
+		// fallback: emit custom event
+		document.dispatchEvent(new CustomEvent(fallbackEventName, { detail: detail || {} }));
+		return false;
+	}
+
+	// Toggle mobile menu overlay
+	function toggleMobileMenu(open) {
+		const overlay = document.querySelector('.mobile-menu-overlay');
+		const hamburger = document.querySelector('.hamburger-toggle');
+		if (!overlay || !hamburger) return;
+		if (typeof open === 'undefined') open = !overlay.classList.contains('open');
+		if (open) {
+			overlay.classList.add('open');
+			hamburger.classList.add('is-open');
+			hamburger.setAttribute('aria-expanded', 'true');
+			// prevent body scroll when menu open (optional)
+			document.documentElement.style.overflow = 'hidden';
+		} else {
+			overlay.classList.remove('open');
+			hamburger.classList.remove('is-open');
+			hamburger.setAttribute('aria-expanded', 'false');
+			document.documentElement.style.overflow = '';
+		}
+	}
+
+	// Global click delegation
+	document.addEventListener('click', function (ev) {
+		const btn = closest(ev.target, '.mobile-order-btn, .add-cart-btn, .hamburger-toggle, .mobile-menu-close, .mobile-menu-link, .modal-close, .menu-btn, .checkout-btn');
+		if (!btn) return;
+
+		// mobile order button -> try forward to desktop handler
+		if (btn.matches('.mobile-order-btn')) {
+			ev.preventDefault();
+			forwardClick(btn, '.order-btn-desktop', 'spice:mobile-order', { source: 'mobile-order-btn' });
+			return;
+		}
+
+		// add-cart-btn: forward to first .menu-btn (desktop add) if exists
+		if (btn.matches('.add-cart-btn')) {
+			ev.preventDefault();
+			forwardClick(btn, '.menu-btn', 'spice:mobile-add-to-cart', { source: 'mobile-add' });
+			return;
+		}
+
+		// hamburger toggle
+		if (btn.matches('.hamburger-toggle')) {
+			ev.preventDefault();
+			toggleMobileMenu();
+			return;
+		}
+
+		// mobile menu close (button or link) -> close overlay
+		if (btn.matches('.mobile-menu-close') || btn.matches('.mobile-menu-link')) {
+			ev.preventDefault();
+			toggleMobileMenu(false);
+			// if a mobile link was clicked, allow natural navigation after closing
+			return;
+		}
+
+		// modal close
+		if (btn.matches('.modal-close')) {
+			const mod = document.querySelector('.modal-overlay.active');
+			if (mod) mod.classList.remove('active');
+			return;
+		}
+
+		// menu-btn or checkout-btn fallback handling: dispatch events so desktop logic can catch them
+		if (btn.matches('.menu-btn')) {
+			// allow existing handlers to run naturally
+			return;
+		}
+	});
+
+	// Close overlays on Escape
+	document.addEventListener('keydown', function (ev) {
+		if (ev.key === 'Escape') {
+			const overlay = document.querySelector('.mobile-menu-overlay.open');
+			if (overlay) toggleMobileMenu(false);
+			const modal = document.querySelector('.modal-overlay.active');
+			if (modal) modal.classList.remove('active');
+		}
+	});
+
+	// Ensure hamburger is visible on small screens if present (fixes pages where CSS might not apply)
+	function ensureHamburgerVisibility() {
+		const ham = document.querySelector('.hamburger-toggle');
+		if (!ham) return;
+		if (window.innerWidth <= 768) ham.style.display = 'flex';
+		else ham.style.display = '';
+	}
+	window.addEventListener('resize', ensureHamburgerVisibility);
+	document.addEventListener('DOMContentLoaded', ensureHamburgerVisibility);
+})();
