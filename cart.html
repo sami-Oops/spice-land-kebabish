@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>Cart | Spice Land Kebabish</title>
+
+<link rel="stylesheet"
+href="bootstrap/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Poppins:wght@300;400;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<nav class="navbar-fixed" id="mainNavbar">
+
+<div class="navbar-inner">
+
+<a class="navbar-brand logo"
+href="index.html">
+
+<img src="images/logo.jpeg">
+
+</a>
+
+<ul class="navbar-menu-desktop">
+
+<li><a class="nav-link" href="index.html">HOME</a></li>
+
+<li><a class="nav-link" href="about.html">ABOUT</a></li>
+
+<li><a class="nav-link" href="menu.html">MENU</a></li>
+
+<li><a class="nav-link" href="gallery.html">GALLERY</a></li>
+
+<li><a class="nav-link" href="contact.html">CONTACT</a></li>
+
+<li><a class="nav-link" href="order.html">ORDER</a></li>
+
+<li><a class="nav-link active"
+href="cart.html">
+
+CART
+
+</a></li>
+
+</ul>
+
+<a class="order-btn order-btn-desktop" href="order.html">
+
+ORDER NOW
+
+<i class="fa-solid fa-cart-shopping ms-2"></i>
+
+</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="cart-hero">
+
+<h1>
+
+YOUR CART
+
+<span>
+
+READY TO CHECKOUT
+
+</span>
+
+</h1>
+
+<p>
+
+Review items before placing order
+
+</p>
+
+</section>
+
+<!-- CART -->
+
+<section class="cart-section">
+
+<div class="cart-left">
+
+<!-- ITEM -->
+
+<div class="cart-card" data-id="reshmi-kebab" data-price="660">
+
+<img src="images/RESHMI KEBAB.jpeg">
+
+<div class="cart-details">
+
+<h3>
+
+RESHMI KEBAB
+
+</h3>
+
+<p>
+
+Premium BBQ
+
+</p>
+
+<div class="qty-control">
+
+<button class="cart-decrease">-</button>
+
+<span class="cart-qty">1</span>
+
+<button class="cart-increase">+</button>
+
+</div>
+
+</div>
+
+<div class="cart-price">
+
+Rs.660
+
+</div>
+
+</div>
+
+<!-- ITEM -->
+
+<div class="cart-card" data-id="chicken-tikka" data-price="600">
+
+<img src="images/CHICKEN TIKKA.jpeg">
+
+<div class="cart-details">
+
+<h3>
+
+CHICKEN TIKKA
+
+</h3>
+
+<p>
+
+Fresh grilled
+
+</p>
+
+<div class="qty-control">
+
+<button class="cart-decrease">-</button>
+
+<span class="cart-qty">2</span>
+
+<button class="cart-increase">+</button>
+
+</div>
+
+</div>
+
+<div class="cart-price">
+
+Rs.1200
+
+</div>
+
+</div>
+
+<!-- ITEM -->
+
+<div class="cart-card" data-id="zinger-burger" data-price="550">
+
+<img src="images/ZINGER BURGER.jpeg">
+
+<div class="cart-details">
+
+<h3>
+
+ZINGER BURGER
+
+</h3>
+
+<p>
+
+Spicy burger
+
+</p>
+
+<div class="qty-control">
+
+<button class="cart-decrease">-</button>
+
+<span class="cart-qty">1</span>
+
+<button class="cart-increase">+</button>
+
+</div>
+
+</div>
+
+<div class="cart-price">
+
+Rs.550
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SUMMARY -->
+
+<div class="cart-right">
+
+<h2>
+
+ORDER SUMMARY
+
+</h2>
+
+<div class="summary-line">
+
+<span>
+
+Items
+
+</span>
+
+<span id="cartItemCount">
+
+4
+
+</span>
+
+</div>
+
+<div class="summary-line">
+
+<span>
+
+Subtotal
+
+</span>
+
+<span id="cartSubtotal">
+
+Rs.2410
+
+</span>
+
+</div>
+
+<div class="summary-line">
+
+<span>
+
+Delivery
+
+</span>
+
+<span id="cartDelivery">
+
+Rs.150
+
+</span>
+
+</div>
+
+<hr>
+
+<div class="summary-line total-line">
+
+<span>
+
+TOTAL
+
+</span>
+
+<span id="cartTotal">
+
+Rs.2560
+
+</span>
+
+</div>
+
+<div class="coupon-box">
+
+<input
+type="text"
+placeholder="Coupon code">
+
+<button>
+
+APPLY
+
+</button>
+
+</div>
+
+<a class="checkout-btn" href="checkout.html">
+
+                    CHECKOUT NOW
+
+                </a>
+
+<a class="back-order" href="order.html">
+
+ADD MORE ITEMS
+
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<section class="newsletter-final-section">
+
+<div class="newsletter-wrapper">
+
+<div class="newsletter-text">
+
+<h2>
+
+STAY UPDATED
+
+<span>
+
+WITH OUR OFFERS
+
+</span>
+
+</h2>
+
+<p>
+
+Get latest deals and discounts
+
+</p>
+
+<div class="newsletter-form-group">
+
+<input
+type="email"
+placeholder="Email address"
+class="newsletter-email-input">
+
+<button class="btn-subscribe-final">
+
+SUBSCRIBE
+
+</button>
+
+</div>
+
+</div>
+
+<div class="newsletter-logo-section">
+
+<div class="spice-land-logo">
+
+<img src="images/logo.jpeg">
+
+</div>
+
+<h3>
+
+SPICE LAND
+
+KEBABISH
+
+</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

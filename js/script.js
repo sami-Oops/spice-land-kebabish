@@ -323,6 +323,8 @@ const dishData = {
 function openDishModal(dishId) {
     const dish = dishData[dishId];
     if (!dish) return;
+    const addButton = document.querySelector('.modal-add-btn');
+    if (addButton) addButton.dataset.dishId = dishId;
     document.getElementById('modalDishImage').src = dish.image;
     document.getElementById('modalDishName').textContent = dish.name;
     document.getElementById('modalDishDesc').textContent = dish.desc;
@@ -336,6 +338,26 @@ function openDishModal(dishId) {
 function closeDishModal() {
     document.getElementById('dishModal').classList.remove('active');
     document.body.style.overflow = 'auto';
+}
+
+function setupModalAddToCart() {
+    const modalAddBtn = document.querySelector('.modal-add-btn');
+    if (!modalAddBtn) return;
+    modalAddBtn.addEventListener('click', () => {
+        const dishId = modalAddBtn.dataset.dishId;
+        const dish = dishData[dishId];
+        if (!dish) return;
+        addToCart({
+            id: dishId,
+            name: dish.name,
+            price: Number(dish.price.replace(/[^0-9]/g, '')),
+            image: dish.image,
+            quantity: 1
+        });
+        showToast(`${dish.name} added to cart`);
+        updateCartCountBadge();
+        closeDishModal();
+    });
 }
 
 // ========== GALLERY MODAL ==========
@@ -403,3 +425,322 @@ document.querySelectorAll('button').forEach(button => {
         setTimeout(() => ripple.remove(), 600);
     });
 });
+
+// ===== CART / ORDER PAGE BEHAVIOR =====
+const CART_STORAGE_KEY = 'spiceLandCart';
+
+function getCartItems() {
+    try {
+        return JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
+    } catch {
+        return [];
+    }
+}
+
+function saveCartItems(items) {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+    updateCartCountBadge();
+}
+
+function formatRs(value) {
+    return `Rs.${value}`;
+}
+
+function getCartTotals(items) {
+    const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+    const subtotal = items.reduce((sum, item) => sum + item.quantity * item.price, 0);
+    const delivery = itemCount > 0 ? 150 : 0;
+    return { itemCount, subtotal, delivery, total: subtotal + delivery };
+}
+
+function updateCartCountBadge() {
+    const total = getCartTotals(getCartItems()).itemCount;
+    const cartLinks = document.querySelectorAll('.navbar-inner a[href="cart.html"], a.order-btn[href="cart.html"]');
+
+    cartLinks.forEach(link => {
+        let badge = link.querySelector('.cart-count-badge');
+        if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'cart-count-badge';
+            link.appendChild(badge);
+        }
+        badge.textContent = total;
+        badge.style.display = total > 0 ? 'inline-flex' : 'none';
+    });
+}
+
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast-message';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('visible'));
+    setTimeout(() => toast.classList.remove('visible'), 1800);
+    setTimeout(() => toast.remove(), 2200);
+}
+
+function addToCart(item) {
+    const items = getCartItems();
+    const existing = items.find(cartItem => cartItem.id === item.id);
+    if (existing) {
+        existing.quantity += item.quantity;
+    } else {
+        items.push({ ...item });
+    }
+    saveCartItems(items);
+}
+
+function setupOrderPage() {
+    const orderWrapper = document.querySelector('.order-wrapper');
+    if (!orderWrapper) return;
+
+    const cards = orderWrapper.querySelectorAll('.food-card');
+    cards.forEach(card => {
+        const qtyValue = card.querySelector('.qty-value');
+        const dec = card.querySelector('.qty-decrease');
+        const inc = card.querySelector('.qty-increase');
+        const addBtn = card.querySelector('.add-cart-btn');
+        const price = Number(card.dataset.price || 0);
+
+        function updateQty(delta) {
+            let qty = Number(qtyValue.textContent.trim()) || 1;
+            qty = Math.max(1, qty + delta);
+            qtyValue.textContent = qty;
+        }
+
+        dec.addEventListener('click', () => updateQty(-1));
+        inc.addEventListener('click', () => updateQty(1));
+
+        addBtn.addEventListener('click', () => {
+            const quantity = Number(qtyValue.textContent.trim()) || 1;
+            const item = {
+                id: card.dataset.id,
+                name: card.dataset.name,
+                price,
+                image: card.dataset.image,
+                quantity
+            };
+            addToCart(item);
+            showToast(`${item.name} added to cart (${quantity})`);
+            updateOrderSummary();
+        });
+    });
+
+    const summaryItems = document.getElementById('orderSummaryItems');
+    const summarySubtotal = document.getElementById('orderSummarySubtotal');
+    const summaryDelivery = document.getElementById('orderSummaryDelivery');
+    const summaryTotal = document.getElementById('orderSummaryTotal');
+
+    function updateOrderSummary() {
+        const totals = getCartTotals(getCartItems());
+        if (summaryItems) summaryItems.textContent = totals.itemCount;
+        if (summarySubtotal) summarySubtotal.textContent = formatRs(totals.subtotal);
+        if (summaryDelivery) summaryDelivery.textContent = formatRs(totals.delivery);
+        if (summaryTotal) summaryTotal.textContent = formatRs(totals.total);
+    }
+
+    updateOrderSummary();
+    updateCartCountBadge();
+}
+
+function setupCartPage() {
+    const cartLeft = document.querySelector('.cart-left');
+    if (!cartLeft) return;
+
+    const summaryItems = document.getElementById('cartItemCount');
+    const summarySubtotal = document.getElementById('cartSubtotal');
+    const summaryDelivery = document.getElementById('cartDelivery');
+    const summaryTotal = document.getElementById('cartTotal');
+
+    function updateCartSummary() {
+        const totals = getCartTotals(getCartItems());
+        if (summaryItems) summaryItems.textContent = totals.itemCount;
+        if (summarySubtotal) summarySubtotal.textContent = formatRs(totals.subtotal);
+        if (summaryDelivery) summaryDelivery.textContent = formatRs(totals.delivery);
+        if (summaryTotal) summaryTotal.textContent = formatRs(totals.total);
+        updateCartCountBadge();
+    }
+
+    function persistCart() {
+        const items = Array.from(cartLeft.querySelectorAll('.cart-card')).map(card => ({
+            id: card.dataset.id,
+            name: card.querySelector('h3')?.textContent.trim(),
+            price: Number(card.dataset.price || 0),
+            quantity: Number(card.querySelector('.cart-qty')?.textContent.trim() || 0),
+            image: card.querySelector('img')?.src || ''
+        })).filter(item => item.quantity > 0);
+        saveCartItems(items);
+    }
+
+    function bindCartEvents() {
+        cartLeft.querySelectorAll('.cart-card').forEach(card => {
+            const decrease = card.querySelector('.cart-decrease');
+            const increase = card.querySelector('.cart-increase');
+            const qtySpan = card.querySelector('.cart-qty');
+            const priceNode = card.querySelector('.cart-price');
+            const unitPrice = Number(card.dataset.price || 0);
+
+            function updateCardQty(delta) {
+                let qty = Number(qtySpan.textContent.trim()) || 0;
+                qty = Math.max(0, qty + delta);
+                qtySpan.textContent = qty;
+                if (qty === 0) {
+                    card.remove();
+                } else {
+                    priceNode.textContent = formatRs(unitPrice * qty);
+                }
+                persistCart();
+                updateCartSummary();
+            }
+
+            decrease?.addEventListener('click', () => updateCardQty(-1));
+            increase?.addEventListener('click', () => updateCardQty(1));
+        });
+    }
+
+    function renderCart() {
+        const items = getCartItems();
+        cartLeft.innerHTML = '';
+
+        if (!items.length) {
+            cartLeft.innerHTML = '<div class="empty-cart"><p>Your cart is empty.</p></div>';
+        } else {
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'cart-card';
+                card.dataset.id = item.id;
+                card.dataset.price = item.price.toString();
+                card.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="cart-details">
+                        <h3>${item.name}</h3>
+                        <p>Quantity</p>
+                        <div class="qty-control">
+                            <button class="cart-decrease">-</button>
+                            <span class="cart-qty">${item.quantity}</span>
+                            <button class="cart-increase">+</button>
+                        </div>
+                    </div>
+                    <div class="cart-price">${formatRs(item.price * item.quantity)}</div>
+                `;
+                cartLeft.appendChild(card);
+            });
+        }
+
+        bindCartEvents();
+        updateCartSummary();
+    }
+
+    renderCart();
+}
+
+function setupCheckoutPage() {
+    const checkoutSection = document.querySelector('.checkout-section');
+    if (!checkoutSection) return;
+
+    const itemsContainer = document.getElementById('checkoutItems');
+    const summaryItems = document.getElementById('checkoutItemCount');
+    const summarySubtotal = document.getElementById('checkoutSubtotal');
+    const summaryDelivery = document.getElementById('checkoutDelivery');
+    const summaryTotal = document.getElementById('checkoutTotal');
+    const placeOrderBtn = document.getElementById('placeOrderBtn');
+    const emptyMessage = document.getElementById('checkoutEmptyMessage');
+
+    if (!itemsContainer) return;
+
+    function renderCheckoutItems() {
+        const items = getCartItems();
+        itemsContainer.innerHTML = '';
+
+        if (!items.length) {
+            if (emptyMessage) emptyMessage.style.display = 'block';
+            return;
+        }
+
+        if (emptyMessage) emptyMessage.style.display = 'none';
+
+        items.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'cart-card';
+            card.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-details">
+                    <h3>${item.name}</h3>
+                    <p>Qty: ${item.quantity}</p>
+                    <p>${formatRs(item.price)} each</p>
+                </div>
+                <div class="cart-price">${formatRs(item.price * item.quantity)}</div>
+            `;
+            itemsContainer.appendChild(card);
+        });
+    }
+
+    function updateCheckoutSummary() {
+        const totals = getCartTotals(getCartItems());
+        if (summaryItems) summaryItems.textContent = totals.itemCount;
+        if (summarySubtotal) summarySubtotal.textContent = formatRs(totals.subtotal);
+        if (summaryDelivery) summaryDelivery.textContent = formatRs(totals.delivery);
+        if (summaryTotal) summaryTotal.textContent = formatRs(totals.total);
+        updateCartCountBadge();
+    }
+
+    renderCheckoutItems();
+    updateCheckoutSummary();
+
+    function validateCheckoutForm() {
+        const name = document.getElementById('checkoutName');
+        const phone = document.getElementById('checkoutPhone');
+        const address = document.getElementById('checkoutAddress');
+        const city = document.getElementById('checkoutCity');
+        const postal = document.getElementById('checkoutPostal');
+        const payment = document.getElementById('checkoutPayment');
+
+        if (!name?.value.trim()) {
+            showToast('Please enter your full name');
+            return false;
+        }
+        if (!phone?.value.trim()) {
+            showToast('Please enter your phone number');
+            return false;
+        }
+        if (!address?.value.trim()) {
+            showToast('Please enter your delivery address');
+            return false;
+        }
+        if (!city?.value.trim()) {
+            showToast('Please enter your city');
+            return false;
+        }
+        if (!postal?.value.trim()) {
+            showToast('Please enter your postal code');
+            return false;
+        }
+        if (!payment?.value) {
+            showToast('Please select a payment method');
+            return false;
+        }
+        return true;
+    }
+
+    placeOrderBtn?.addEventListener('click', () => {
+        const items = getCartItems();
+        if (!items.length) {
+            showToast('Your cart is empty');
+            return;
+        }
+        if (!validateCheckoutForm()) {
+            return;
+        }
+        saveCartItems([]);
+        showToast('Order placed successfully!');
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 1200);
+    });
+}
+
+updateCartCountBadge();
+setupOrderPage();
+setupCartPage();
+setupCheckoutPage();
+setupModalAddToCart();

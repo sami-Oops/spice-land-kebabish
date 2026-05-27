@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>Order | Spice Land Kebabish</title>
+
+<link rel="stylesheet"
+href="bootstrap/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Poppins:wght@300;400;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<nav class="navbar-fixed" id="mainNavbar">
+
+<div class="navbar-inner">
+
+<a class="navbar-brand logo"
+href="index.html">
+
+<img src="images/logo.jpeg">
+
+</a>
+
+<ul class="navbar-menu-desktop">
+
+<li><a class="nav-link" href="index.html">HOME</a></li>
+
+<li><a class="nav-link" href="about.html">ABOUT</a></li>
+
+<li><a class="nav-link active" href="order.html">ORDER</a></li>
+
+<li><a class="nav-link" href="cart.html">CART</a></li>
+
+<li><a class="nav-link" href="contact.html">CONTACT</a></li>
+
+</ul>
+
+<a class="order-btn order-btn-desktop" href="cart.html">
+
+CART
+
+<i class="fa-solid fa-cart-shopping ms-2"></i>
+
+</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="order-hero">
+
+<h1>
+
+ORDER
+
+<span>
+
+YOUR FAVORITES
+
+</span>
+
+</h1>
+
+<p>
+
+Fresh BBQ • Burgers • Deals • Drinks
+
+</p>
+
+</section>
+
+<!-- CATEGORY -->
+
+<section class="category-section">
+
+<button class="category-btn active">
+
+BBQ
+
+</button>
+
+<button class="category-btn">
+
+BURGERS
+
+</button>
+
+<button class="category-btn">
+
+DEALS
+
+</button>
+
+<button class="category-btn">
+
+DRINKS
+
+</button>
+
+</section>
+
+<!-- CONTENT -->
+
+<section class="order-wrapper">
+
+<div class="food-grid">
+
+<!-- CARD -->
+
+<div class="food-card" data-id="reshmi-kebab" data-name="RESHMI KEBAB" data-price="660" data-image="images/RESHMI KEBAB.jpeg">
+
+<img src="images/RESHMI KEBAB.jpeg">
+
+<h3>
+
+RESHMI KEBAB
+
+</h3>
+
+<p>
+
+Rs.660
+
+</p>
+
+<div class="qty-box">
+
+<button class="qty-decrease">
+
+-
+
+</button>
+
+<span class="qty-value">
+
+1
+
+</span>
+
+<button class="qty-increase">
+
++
+
+</button>
+
+</div>
+
+<button class="add-cart-btn">
+
+ADD TO CART
+
+</button>
+
+</div>
+
+<!-- CARD -->
+
+<div class="food-card" data-id="chicken-tikka" data-name="CHICKEN TIKKA" data-price="600" data-image="images/CHICKEN TIKKA.jpeg">
+
+<img src="images/CHICKEN TIKKA.jpeg">
+
+<h3>
+
+CHICKEN TIKKA
+
+</h3>
+
+<p>
+
+Rs.600
+
+</p>
+
+<div class="qty-box">
+
+<button class="qty-decrease">
+
+-
+
+</button>
+
+<span class="qty-value">
+
+1
+
+</span>
+
+<button class="qty-increase">
+
++
+
+</button>
+
+</div>
+
+<button class="add-cart-btn">
+
+ADD TO CART
+
+</button>
+
+</div>
+
+<!-- CARD -->
+
+<div class="food-card" data-id="zinger-burger" data-name="ZINGER BURGER" data-price="550" data-image="images/ZINGER BURGER.jpeg">
+
+<img src="images/ZINGER BURGER.jpeg">
+
+<h3>
+
+ZINGER BURGER
+
+</h3>
+
+<p>
+
+Rs.550
+
+</p>
+
+<div class="qty-box">
+
+<button class="qty-decrease">
+
+-
+
+</button>
+
+<span class="qty-value">
+
+1
+
+</span>
+
+<button class="qty-increase">
+
++
+
+</button>
+
+</div>
+
+<button class="add-cart-btn">
+
+ADD TO CART
+
+</button>
+
+</div>
+
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="cart-side">
+
+<h2>
+
+ORDER SUMMARY
+
+</h2>
+
+<div class="summary-row">
+
+<span>
+
+Items
+
+</span>
+
+<span id="orderSummaryItems">
+
+3
+
+</span>
+
+</div>
+
+<div class="summary-row">
+
+<span>
+
+Subtotal
+
+</span>
+
+<span id="orderSummarySubtotal">
+
+Rs.1810
+
+</span>
+
+</div>
+
+<div class="summary-row">
+
+<span>
+
+Delivery
+
+</span>
+
+<span id="orderSummaryDelivery">
+
+Rs.150
+
+</span>
+
+</div>
+
+<hr>
+
+<div class="summary-row total">
+
+<span>
+
+TOTAL
+
+</span>
+
+<span id="orderSummaryTotal">
+
+Rs.1960
+
+</span>
+
+</div>
+
+<a class="checkout-btn" href="cart.html">
+
+VIEW CART
+
+</a>
+
+</div>
+
+</section>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

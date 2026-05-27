@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout | Spice Land Kebabish</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar-fixed" id="mainNavbar">
+        <div class="navbar-inner">
+            <a class="navbar-brand logo" href="index.html">
+                <img src="images/logo.jpeg" alt="Spice Land Logo">
+            </a>
+
+            <ul class="navbar-menu-desktop">
+                <li><a class="nav-link" href="index.html">HOME</a></li>
+                <li><a class="nav-link" href="about.html">ABOUT</a></li>
+                <li><a class="nav-link" href="menu.html">MENU</a></li>
+                <li><a class="nav-link" href="gallery.html">GALLERY</a></li>
+                <li><a class="nav-link" href="contact.html">CONTACT</a></li>
+            </ul>
+
+            <a class="order-btn order-btn-desktop" href="order.html">
+                ORDER NOW <i class="fa-solid fa-shopping-basket ms-2"></i>
+            </a>
+
+            <button class="hamburger-toggle" id="hamburgerToggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="mobile-menu-logo">
+            <img src="images/logo.jpeg" alt="Spice Land Logo">
+        </div>
+
+        <ul class="mobile-menu-list">
+            <li><a class="mobile-menu-link" href="index.html" onclick="toggleMobileMenu()">HOME</a></li>
+            <li><a class="mobile-menu-link" href="about.html" onclick="toggleMobileMenu()">ABOUT</a></li>
+            <li><a class="mobile-menu-link" href="menu.html" onclick="toggleMobileMenu()">MENU</a></li>
+            <li><a class="mobile-menu-link" href="gallery.html" onclick="toggleMobileMenu()">GALLERY</a></li>
+            <li><a class="mobile-menu-link" href="contact.html" onclick="toggleMobileMenu()">CONTACT</a></li>
+        </ul>
+
+        <a class="mobile-order-btn" href="order.html" onclick="toggleMobileMenu()">
+            ORDER NOW <i class="fa-solid fa-shopping-basket ms-2"></i>
+        </a>
+
+        <div class="mobile-social-links">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <section class="cart-hero">
+        <h1>CHECKOUT</h1>
+        <span>Complete your order</span>
+        <p>Review your items, confirm the total and place your order securely.</p>
+    </section>
+
+    <section class="cart-section checkout-section">
+        <div class="checkout-left">
+            <div class="order-hero-content" style="padding:0 0 20px;">
+                <h2 style="color:white; margin-bottom:10px;">Order Items</h2>
+            </div>
+            <div id="checkoutItems"></div>
+            <div id="checkoutEmptyMessage" class="empty-cart" style="display:none; color:#aaa; text-align:center;">
+                <p>Your cart is empty. Add items from the menu to continue.</p>
+            </div>
+        </div>
+
+        <div class="cart-right">
+            <h2>Order Summary</h2>
+            <div class="summary-line">
+                <span>Items</span>
+                <span id="checkoutItemCount">0</span>
+            </div>
+            <div class="summary-line">
+                <span>Subtotal</span>
+                <span id="checkoutSubtotal">Rs.0</span>
+            </div>
+            <div class="summary-line">
+                <span>Delivery</span>
+                <span id="checkoutDelivery">Rs.0</span>
+            </div>
+            <div class="total-line">
+                <span>Total</span>
+                <span id="checkoutTotal">Rs.0</span>
+            </div>
+
+            <div class="checkout-form">
+                <h3>Delivery Information</h3>
+                <label for="checkoutName">Full Name</label>
+                <input id="checkoutName" type="text" placeholder="Enter your full name">
+
+                <label for="checkoutPhone">Phone Number</label>
+                <input id="checkoutPhone" type="tel" placeholder="Enter your phone number">
+
+                <label for="checkoutAddress">Delivery Address</label>
+                <textarea id="checkoutAddress" placeholder="Street, building, landmarks"></textarea>
+
+                <label for="checkoutCity">City</label>
+                <input id="checkoutCity" type="text" placeholder="Enter your city">
+
+                <label for="checkoutPostal">Postal Code</label>
+                <input id="checkoutPostal" type="text" placeholder="Enter your postal code">
+
+                <label for="checkoutPayment">Payment Method</label>
+                <select id="checkoutPayment">
+                    <option value="">Choose payment</option>
+                    <option value="cash">Cash on delivery</option>
+                    <option value="card">Card</option>
+                </select>
+            </div>
+
+            <button id="placeOrderBtn" class="checkout-btn">PLACE ORDER</button>
+            <a class="back-order" href="cart.html">BACK TO CART</a>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
