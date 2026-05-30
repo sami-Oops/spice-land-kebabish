@@ -782,8 +782,29 @@ setupModalAddToCart();
 
 	// Global click delegation
 	document.addEventListener('click', function (ev) {
-		const btn = closest(ev.target, '.mobile-order-btn, .add-cart-btn, .hamburger-toggle, .mobile-menu-close, .mobile-menu-link, .modal-close, .menu-btn, .checkout-btn');
+		const btn = closest(ev.target, '.mobile-order-btn, .add-cart-btn, .hamburger-toggle, .mobile-menu-close, .mobile-menu-link, .modal-close, .menu-btn, .checkout-btn, .btn-red, .btn-dark2, .btn-select');
 		if (!btn) return;
+
+		// Hero "ORDER NOW" button -> navigate to order page
+		if (btn.matches('.btn-red')) {
+			ev.preventDefault();
+			window.location.href = 'order.html';
+			return;
+		}
+
+		// Hero "EXPLORE MENU" button -> navigate to menu page
+		if (btn.matches('.btn-dark2')) {
+			ev.preventDefault();
+			window.location.href = 'menu.html';
+			return;
+		}
+
+		// Combo "SELECT NOW" button -> navigate to order page
+		if (btn.matches('.btn-select')) {
+			ev.preventDefault();
+			window.location.href = 'order.html';
+			return;
+		}
 
 		// mobile order button -> try forward to desktop handler
 		if (btn.matches('.mobile-order-btn')) {
