@@ -3,408 +3,426 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Cart | Spice Land Kebabish</title>
+    <title>Cart | Spice Land Kebabish</title>
 
-<link rel="stylesheet"
-href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Rye&family=Poppins:wght@300;400;600;700&display=swap"
-rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
 
-<link rel="stylesheet"
-href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-<!-- HEADER -->
+    <!-- HEADER -->
 
-<nav class="navbar-fixed" id="mainNavbar">
+    <nav class="navbar-fixed" id="mainNavbar">
 
-<div class="navbar-inner">
+        <div class="navbar-inner">
 
-<a class="navbar-brand logo"
-href="index.html">
+            <a class="navbar-brand logo" href="index.html">
 
-<img src="images/logo.jpeg">
+                <img src="images/logo.jpeg">
 
-</a>
+            </a>
 
-<ul class="navbar-menu-desktop">
+            <ul class="navbar-menu-desktop">
 
-<li><a class="nav-link" href="index.html">HOME</a></li>
+                <li><a class="nav-link" href="index.html">HOME</a></li>
 
-<li><a class="nav-link" href="about.html">ABOUT</a></li>
+                <li><a class="nav-link" href="about.html">ABOUT</a></li>
 
-<li><a class="nav-link" href="menu.html">MENU</a></li>
+                <li><a class="nav-link" href="menu.html">MENU</a></li>
 
-<li><a class="nav-link" href="gallery.html">GALLERY</a></li>
+                <li><a class="nav-link" href="gallery.html">GALLERY</a></li>
 
-<li><a class="nav-link" href="contact.html">CONTACT</a></li>
+                <li><a class="nav-link" href="contact.html">CONTACT</a></li>
 
-<li><a class="nav-link" href="order.html">ORDER</a></li>
+                <li><a class="nav-link" href="order.html">ORDER</a></li>
 
-<li><a class="nav-link active"
-href="cart.html">
+                <li><a class="nav-link active" href="cart.html">
 
-CART
+                        CART
 
-</a></li>
+                    </a></li>
 
-</ul>
+            </ul>
 
-<a class="order-btn order-btn-desktop" href="order.html">
+            <a class="order-btn order-btn-desktop" href="order.html">
 
-ORDER NOW
+                ORDER NOW
 
-<i class="fa-solid fa-cart-shopping ms-2"></i>
+                <i class="fa-solid fa-cart-shopping ms-2"></i>
 
-</a>
+            </a>
 
-</div>
+            <!-- HAMBURGER (mobile only) -->
+            <button class="hamburger-toggle" id="hamburgerToggle" onclick="toggleMobileMenu()" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-</nav>
+        </div>
 
-<!-- HERO -->
+    </nav>
 
-<section class="cart-hero">
+    <!-- MOBILE FULLSCREEN OVERLAY MENU -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="mobile-menu-logo">
+            <img src="images/logo.jpeg" alt="Spice Land Logo">
+        </div>
+        <ul class="mobile-menu-list">
+            <li><a class="mobile-menu-link" href="index.html" onclick="toggleMobileMenu()">HOME</a></li>
+            <li><a class="mobile-menu-link" href="about.html" onclick="toggleMobileMenu()">ABOUT</a></li>
+            <li><a class="mobile-menu-link" href="menu.html" onclick="toggleMobileMenu()">MENU</a></li>
+            <li><a class="mobile-menu-link" href="gallery.html" onclick="toggleMobileMenu()">GALLERY</a></li>
+            <li><a class="mobile-menu-link" href="contact.html" onclick="toggleMobileMenu()">CONTACT</a></li>
+        </ul>
+        <a class="mobile-order-btn" href="order.html" onclick="toggleMobileMenu()">
+            ORDER NOW <i class="fa-solid fa-shopping-basket ms-2"></i>
+        </a>
+        <div class="mobile-social-links">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </div>
 
-<h1>
+    <!-- HERO -->
 
-YOUR CART
+    <section class="cart-hero">
 
-<span>
+        <h1>
 
-READY TO CHECKOUT
+            YOUR CART
 
-</span>
+            <span>
 
-</h1>
+                READY TO CHECKOUT
 
-<p>
+            </span>
 
-Review items before placing order
+        </h1>
 
-</p>
+        <p>
 
-</section>
+            Review items before placing order
 
-<!-- CART -->
+        </p>
 
-<section class="cart-section">
+    </section>
 
-<div class="cart-left">
+    <!-- CART -->
 
-<!-- ITEM -->
+    <section class="cart-section">
 
-<div class="cart-card" data-id="reshmi-kebab" data-price="660">
+        <div class="cart-left">
 
-<img src="images/RESHMI KEBAB.jpeg">
+            <!-- ITEM -->
 
-<div class="cart-details">
+            <div class="cart-card" data-id="reshmi-kebab" data-price="660">
 
-<h3>
+                <img src="images/RESHMI KEBAB.jpeg">
 
-RESHMI KEBAB
+                <div class="cart-details">
 
-</h3>
+                    <h3>
 
-<p>
+                        RESHMI KEBAB
 
-Premium BBQ
+                    </h3>
 
-</p>
+                    <p>
 
-<div class="qty-control">
+                        Premium BBQ
 
-<button class="cart-decrease">-</button>
+                    </p>
 
-<span class="cart-qty">1</span>
+                    <div class="qty-control">
 
-<button class="cart-increase">+</button>
+                        <button class="cart-decrease">-</button>
 
-</div>
+                        <span class="cart-qty">1</span>
 
-</div>
+                        <button class="cart-increase">+</button>
 
-<div class="cart-price">
+                    </div>
 
-Rs.660
+                </div>
 
-</div>
+                <div class="cart-price">
 
-</div>
+                    Rs.660
 
-<!-- ITEM -->
+                </div>
 
-<div class="cart-card" data-id="chicken-tikka" data-price="600">
+            </div>
 
-<img src="images/CHICKEN TIKKA.jpeg">
+            <!-- ITEM -->
 
-<div class="cart-details">
+            <div class="cart-card" data-id="chicken-tikka" data-price="600">
 
-<h3>
+                <img src="images/CHICKEN TIKKA.jpeg">
 
-CHICKEN TIKKA
+                <div class="cart-details">
 
-</h3>
+                    <h3>
 
-<p>
+                        CHICKEN TIKKA
 
-Fresh grilled
+                    </h3>
 
-</p>
+                    <p>
 
-<div class="qty-control">
+                        Fresh grilled
 
-<button class="cart-decrease">-</button>
+                    </p>
 
-<span class="cart-qty">2</span>
+                    <div class="qty-control">
 
-<button class="cart-increase">+</button>
+                        <button class="cart-decrease">-</button>
 
-</div>
+                        <span class="cart-qty">2</span>
 
-</div>
+                        <button class="cart-increase">+</button>
 
-<div class="cart-price">
+                    </div>
 
-Rs.1200
+                </div>
 
-</div>
+                <div class="cart-price">
 
-</div>
+                    Rs.1200
 
-<!-- ITEM -->
+                </div>
 
-<div class="cart-card" data-id="zinger-burger" data-price="550">
+            </div>
 
-<img src="images/ZINGER BURGER.jpeg">
+            <!-- ITEM -->
 
-<div class="cart-details">
+            <div class="cart-card" data-id="zinger-burger" data-price="550">
 
-<h3>
+                <img src="images/ZINGER BURGER.jpeg">
 
-ZINGER BURGER
+                <div class="cart-details">
 
-</h3>
+                    <h3>
 
-<p>
+                        ZINGER BURGER
 
-Spicy burger
+                    </h3>
 
-</p>
+                    <p>
 
-<div class="qty-control">
+                        Spicy burger
 
-<button class="cart-decrease">-</button>
+                    </p>
 
-<span class="cart-qty">1</span>
+                    <div class="qty-control">
 
-<button class="cart-increase">+</button>
+                        <button class="cart-decrease">-</button>
 
-</div>
+                        <span class="cart-qty">1</span>
 
-</div>
+                        <button class="cart-increase">+</button>
 
-<div class="cart-price">
+                    </div>
 
-Rs.550
+                </div>
 
-</div>
+                <div class="cart-price">
 
-</div>
+                    Rs.550
 
-</div>
+                </div>
 
-<!-- SUMMARY -->
+            </div>
 
-<div class="cart-right">
+        </div>
 
-<h2>
+        <!-- SUMMARY -->
 
-ORDER SUMMARY
+        <div class="cart-right">
 
-</h2>
+            <h2>
 
-<div class="summary-line">
+                ORDER SUMMARY
 
-<span>
+            </h2>
 
-Items
+            <div class="summary-line">
 
-</span>
+                <span>
 
-<span id="cartItemCount">
+                    Items
 
-4
+                </span>
 
-</span>
+                <span id="cartItemCount">
 
-</div>
+                    4
 
-<div class="summary-line">
+                </span>
 
-<span>
+            </div>
 
-Subtotal
+            <div class="summary-line">
 
-</span>
+                <span>
 
-<span id="cartSubtotal">
+                    Subtotal
 
-Rs.2410
+                </span>
 
-</span>
+                <span id="cartSubtotal">
 
-</div>
+                    Rs.2410
 
-<div class="summary-line">
+                </span>
 
-<span>
+            </div>
 
-Delivery
+            <div class="summary-line">
 
-</span>
+                <span>
 
-<span id="cartDelivery">
+                    Delivery
 
-Rs.150
+                </span>
 
-</span>
+                <span id="cartDelivery">
 
-</div>
+                    Rs.150
 
-<hr>
+                </span>
 
-<div class="summary-line total-line">
+            </div>
 
-<span>
+            <hr>
 
-TOTAL
+            <div class="summary-line total-line">
 
-</span>
+                <span>
 
-<span id="cartTotal">
+                    TOTAL
 
-Rs.2560
+                </span>
 
-</span>
+                <span id="cartTotal">
 
-</div>
+                    Rs.2560
 
-<div class="coupon-box">
+                </span>
 
-<input
-type="text"
-placeholder="Coupon code">
+            </div>
 
-<button>
+            <div class="coupon-box">
 
-APPLY
+                <input type="text" placeholder="Coupon code">
 
-</button>
+                <button>
 
-</div>
+                    APPLY
 
-<a class="checkout-btn" href="checkout.html">
+                </button>
 
-                    CHECKOUT NOW
+            </div>
 
-                </a>
+            <a class="checkout-btn" href="checkout.html">
 
-<a class="back-order" href="order.html">
+                CHECKOUT NOW
 
-ADD MORE ITEMS
+            </a>
 
-</a>
+            <a class="back-order" href="order.html">
 
-</div>
+                ADD MORE ITEMS
 
-</section>
+            </a>
 
-<!-- FOOTER -->
+        </div>
 
-<section class="newsletter-final-section">
+    </section>
 
-<div class="newsletter-wrapper">
+    <!-- FOOTER -->
 
-<div class="newsletter-text">
+    <section class="newsletter-final-section">
 
-<h2>
+        <div class="newsletter-wrapper">
 
-STAY UPDATED
+            <div class="newsletter-text">
 
-<span>
+                <h2>
 
-WITH OUR OFFERS
+                    STAY UPDATED
 
-</span>
+                    <span>
 
-</h2>
+                        WITH OUR OFFERS
 
-<p>
+                    </span>
 
-Get latest deals and discounts
+                </h2>
 
-</p>
+                <p>
 
-<div class="newsletter-form-group">
+                    Get latest deals and discounts
 
-<input
-type="email"
-placeholder="Email address"
-class="newsletter-email-input">
+                </p>
 
-<button class="btn-subscribe-final">
+                <div class="newsletter-form-group">
 
-SUBSCRIBE
+                    <input type="email" placeholder="Email address" class="newsletter-email-input">
 
-</button>
+                    <button class="btn-subscribe-final">
 
-</div>
+                        SUBSCRIBE
 
-</div>
+                    </button>
 
-<div class="newsletter-logo-section">
+                </div>
 
-<div class="spice-land-logo">
+            </div>
 
-<img src="images/logo.jpeg">
+            <div class="newsletter-logo-section">
 
-</div>
+                <div class="spice-land-logo">
 
-<h3>
+                    <img src="images/logo.jpeg">
 
-SPICE LAND
+                </div>
 
-KEBABISH
+                <h3>
 
-</h3>
+                    SPICE LAND
 
-</div>
+                    KEBABISH
 
-</div>
+                </h3>
 
-</section>
+            </div>
 
-<script src="js/script.js"></script>
+        </div>
+
+    </section>
+
+    <script src="js/script.js"></script>
 
 </body>
 

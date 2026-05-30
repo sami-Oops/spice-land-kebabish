@@ -2460,6 +2460,34 @@ width:100%;
 height:55px;
 }
 
+/* Improve images and spacing on narrow screens */
+.cart-card img{
+    width:100%;
+    max-width:240px;
+    height:auto;
+    margin:0 auto;
+}
+
+.cart-price{
+    font-size:20px;
+}
+
+.cart-hero{ padding:120px 16px 60px; }
+
+/* Ensure navbar inner padding doesn't force horizontal scroll */
+.navbar-inner{ padding:0 16px; }
+
+}
+
+@media (max-width:576px) {
+    .cart-section{ padding:30px 12px; gap:20px; }
+    .cart-hero{ padding:90px 12px 40px; }
+    .cart-hero h1{ font-size:32px; }
+    .cart-card{ padding:18px; gap:12px; border-radius:14px; }
+    .cart-card img{ max-width:200px; }
+    .qty-control button{ width:36px; height:36px; }
+    .coupon-box input{ height:48px; padding:12px; }
+    .checkout-btn, .back-order{ height:52px; }
 }
 
 /* --- MOBILE FAIL-SAFE & DEBUG HELPERS --- */
