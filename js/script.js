@@ -319,7 +319,6 @@ const dishData = {
         price: 'Rs. 550'
     }
 };
-
 function openDishModal(dishId) {
     const dish = dishData[dishId];
     if (!dish) return;

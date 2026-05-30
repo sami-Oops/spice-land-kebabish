@@ -2579,3 +2579,154 @@ height:55px;
 		padding-top: 72px; /* matches approximate header height on mobile */
 	}
 }
+/* ===== MOBILE RESPONSIVE FIXES — add at bottom of style.css ===== */
+
+/* ---- CART PAGE ---- */
+@media (max-width: 768px) {
+    .cart-hero {
+        padding: 90px 16px 50px;
+    }
+
+    .cart-hero h1 {
+        font-size: 36px;
+    }
+
+    .cart-section {
+        grid-template-columns: 1fr;
+        padding: 30px 16px;
+        gap: 24px;
+    }
+
+    .cart-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 16px;
+        gap: 14px;
+    }
+
+    .cart-card img {
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 12px;
+    }
+
+    .qty-control {
+        justify-content: center;
+    }
+
+    .cart-price {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .cart-right {
+        padding: 24px 16px;
+    }
+
+    .cart-right h2 {
+        font-size: 20px;
+    }
+
+    .coupon-box {
+        flex-direction: column;
+    }
+
+    .coupon-box input {
+        width: 100%;
+        height: 50px;
+    }
+
+    .coupon-box button {
+        width: 100%;
+        height: 50px;
+    }
+
+    .checkout-btn,
+    .back-order {
+        height: 54px;
+        font-size: 14px;
+    }
+}
+
+/* ---- CHECKOUT PAGE ---- */
+@media (max-width: 768px) {
+    .checkout-section {
+        grid-template-columns: 1fr;
+        padding: 30px 16px;
+        gap: 24px;
+    }
+
+    .checkout-section .checkout-left {
+        order: 2;
+    }
+
+    .checkout-section .cart-right {
+        order: 1;
+    }
+
+    .checkout-form input,
+    .checkout-form textarea,
+    .checkout-form select {
+        font-size: 16px; /* prevents iOS auto-zoom on focus */
+        padding: 14px;
+    }
+
+    .checkout-form textarea {
+        min-height: 100px;
+    }
+
+    .checkout-form h3 {
+        font-size: 17px;
+    }
+
+    .checkout-form label {
+        font-size: 13px;
+    }
+}
+
+/* ---- GENERAL MOBILE TOUCH/INPUT FIXES ---- */
+@media (max-width: 768px) {
+    /* Prevent iOS zoom on input focus */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+
+    /* Ensure cart cards in checkout are readable */
+    #checkoutItems .cart-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    #checkoutItems .cart-card img {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    #checkoutItems .cart-price {
+        font-size: 18px;
+    }
+
+    /* Summary lines */
+    .summary-line {
+        font-size: 14px;
+    }
+
+    .total-line {
+        font-size: 20px;
+    }
+
+    /* Navbar safe zone */
+    .navbar-inner {
+        padding: 0 16px !important;
+    }
+}
