@@ -40,7 +40,7 @@ href="css/style.css">
 <div class="navbar-inner">
 
 <a class="navbar-brand logo"
-href="index.html">
+<button class="hamburger-toggle" id="hamburgerToggle">
 
 <img src="images/logo.jpeg"
 alt="logo">
@@ -56,7 +56,7 @@ href="index.html">HOME</a></li>
 href="about.html">ABOUT</a></li>
 
 <li><a class="nav-link"
-href="menu.html">MENU</a></li>
+<button class="mobile-menu-close">
 
 <li><a class="nav-link"
 href="gallery.html">GALLERY</a></li>
@@ -70,11 +70,11 @@ href="contact.html">CONTACT</a></li>
 
 ORDER NOW
 
-<i class="fa-solid fa-shopping-basket ms-2"></i>
-
-</a>
-
-<button class="hamburger-toggle" id="hamburgerToggle" onclick="toggleMobileMenu()">
+<li><a class="mobile-menu-link" href="index.html">HOME</a></li>
+<li><a class="mobile-menu-link" href="about.html">ABOUT</a></li>
+<li><a class="mobile-menu-link" href="menu.html">MENU</a></li>
+<li><a class="mobile-menu-link" href="gallery.html">GALLERY</a></li>
+<li><a class="mobile-menu-link" href="contact.html">CONTACT</a></li>
 
 <span></span>
 <span></span>
@@ -90,7 +90,7 @@ ORDER NOW
 
 <div class="mobile-menu-overlay" id="mobileMenu">
 
-<button class="mobile-menu-close" onclick="toggleMobileMenu()">
+<button class="mobile-menu-close">
 
 <i class="fa-solid fa-xmark"></i>
 
@@ -104,19 +104,19 @@ ORDER NOW
 
 <ul class="mobile-menu-list">
 
-<li><a class="mobile-menu-link" href="index.html" onclick="toggleMobileMenu()">HOME</a></li>
+<li><a class="mobile-menu-link" href="index.html">HOME</a></li>
 
-<li><a class="mobile-menu-link" href="about.html" onclick="toggleMobileMenu()">ABOUT</a></li>
+<li><a class="mobile-menu-link" href="about.html">ABOUT</a></li>
 
-<li><a class="mobile-menu-link" href="menu.html" onclick="toggleMobileMenu()">MENU</a></li>
+<li><a class="mobile-menu-link" href="menu.html">MENU</a></li>
 
-<li><a class="mobile-menu-link" href="gallery.html" onclick="toggleMobileMenu()">GALLERY</a></li>
+<li><a class="mobile-menu-link" href="gallery.html">GALLERY</a></li>
 
-<li><a class="mobile-menu-link" href="contact.html" onclick="toggleMobileMenu()">CONTACT</a></li>
+<li><a class="mobile-menu-link" href="contact.html">CONTACT</a></li>
 
 </ul>
 
-<a class="mobile-order-btn" href="order.html" onclick="toggleMobileMenu()">
+<a class="mobile-order-btn" href="order.html">
 
       ORDER NOW <i class="fa-solid fa-shopping-basket ms-2"></i>
 
