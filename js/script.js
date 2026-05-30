@@ -800,20 +800,26 @@ setupModalAddToCart();
 			return;
 		}
 
-		// hamburger toggle
-		if (btn.matches('.hamburger-toggle')) {
-			ev.preventDefault();
-			toggleMobileMenu();
-			return;
-		}
+        // hamburger toggle
+        if (btn.matches('.hamburger-toggle')) {
+            ev.preventDefault();
+            toggleMobileMenu();
+            return;
+        }
 
-		// mobile menu close (button or link) -> close overlay
-		if (btn.matches('.mobile-menu-close') || btn.matches('.mobile-menu-link')) {
-			ev.preventDefault();
-			toggleMobileMenu(false);
-			// if a mobile link was clicked, allow natural navigation after closing
-			return;
-		}
+        // mobile menu close button -> close overlay and prevent default
+        if (btn.matches('.mobile-menu-close')) {
+            ev.preventDefault();
+            toggleMobileMenu(false);
+            return;
+        }
+
+        // mobile menu link -> close overlay but allow natural navigation (do NOT preventDefault)
+        if (btn.matches('.mobile-menu-link')) {
+            toggleMobileMenu(false);
+            // navigation will proceed normally after handler returns
+            return;
+        }
 
 		// modal close
 		if (btn.matches('.modal-close')) {
